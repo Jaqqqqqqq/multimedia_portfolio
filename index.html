@@ -193,6 +193,39 @@
       font-size: 14px;
       border-top: 2px solid #00D9FF;
     }
+    .steps-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+    .step-card {
+      background: rgba(0, 217, 255, 0.05);
+      padding: 30px;
+      border-radius: 12px;
+      border: 2px solid rgba(0, 217, 255, 0.3);
+      box-shadow: 0 8px 25px rgba(0, 217, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+    .step-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(0, 217, 255, 0.3);
+      border-color: #00D9FF;
+      background: rgba(0, 217, 255, 0.1);
+    }
+    .step-card h3 {
+      color: #00D9FF;
+      margin-bottom: 15px;
+    }
+    .step-card p {
+      margin-bottom: 15px;
+      color: #e0e0e0;
+    }
+    .step-card iframe {
+      border-radius: 8px;
+      border: 2px solid rgba(0, 217, 255, 0.3);
+      margin-top: 15px;
+    }
   </style>
 </head>
 <body>
@@ -243,8 +276,32 @@
   </div>
 
   <h2>Step-by-Step Tutorial</h2>
-  <div class="card">
-    <p><strong>Step 1:</strong> Find a video reference for rotoscoping.</p>
+  <div class="steps-container">
+    <div class="step-card">
+      <h3>Step 1: Find a Video Reference</h3>
+      <p>Select a reference video for rotoscoping. Watch the video below for guidance:</p>
+      <iframe width="100%" height="315" src="https://www.youtube.com/embed/i9PFkQp3WSo" title="Rotoscoping Reference" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    
+    <div class="step-card">
+      <h3>Step 2: Set Up Your Workspace</h3>
+      <p>Prepare your animation software and import the reference footage. Organize your layers and establish your frame rate.</p>
+    </div>
+    
+    <div class="step-card">
+      <h3>Step 3: Begin Rotoscoping</h3>
+      <p>Start tracing the subject frame by frame. Use the pen tool to create precise outlines for each frame.</p>
+    </div>
+    
+    <div class="step-card">
+      <h3>Step 4: Refine Details</h3>
+      <p>Go back and refine the details. Ensure smooth transitions between frames and fix any inconsistencies.</p>
+    </div>
+    
+    <div class="step-card">
+      <h3>Step 5: Add Effects & Polish</h3>
+      <p>Apply colors, effects, and final touches to complete your rotoscope animation.</p>
+    </div>
   </div>
 
   <h2>Weekly Progress</h2>
