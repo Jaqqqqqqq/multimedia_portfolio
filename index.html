@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multimedia & Authoring</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f4f4;
+    }
+    nav {
+      background: #222;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      display: none;
+      padding: 40px;
+    }
+    section.active {
+      display: block;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .thumbnail {
+      width: 100%;
+      height: 150px;
+      background: #ccc;
+      border-radius: 10px;
+    }
+    .video-container {
+      width: 100%;
+      height: 400px;
+      background: #ddd;
+      border-radius: 10px;
+    }
+    .weeks {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+    .week-box {
+      background: #fff;
+      height: 150px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#" onclick="showSection('home')">Home</a>
+  <a href="#" onclick="showSection('portfolio')">Portfolio</a>
+  <a href="#" onclick="showSection('about')">About</a>
+</nav>
+
+<section id="home" class="active">
+  <h1>Multimedia & Authoring</h1>
+  <h2>Rotoscope and 3D Rendering</h2>
+  <p>
+    Exploring the art of rotoscoping and the realism of 3D rendering to create compelling visual narratives.
+    Merging creativity with technology to bring motion and dimension to digital storytelling.
+  </p>
+</section>
+
+<section id="portfolio">
+  <h1>Portfolio</h1>
+  <div class="portfolio-grid">
+    <div class="card" onclick="showSection('solar')">
+      <div class="thumbnail"></div>
+      <h3>3D Solar System (3D Rendering)</h3>
+    </div>
+    <div class="card" onclick="showSection('rotoscope')">
+      <div class="thumbnail"></div>
+      <h3>1-Minute Video Rotoscope</h3>
+    </div>
+  </div>
+</section>
+
+<section id="solar">
+  <h1>3D Solar System</h1>
+  <p>Content for your 3D rendering project goes here.</p>
+</section>
+
+<section id="rotoscope">
+  <h1>1-Minute Rotoscope Project</h1>
+
+  <h2>1-Minute Rotoscope Video</h2>
+  <div class="video-container">
+    <!-- Paste YouTube embed here -->
+  </div>
+
+  <h2>Step-by-Step Tutorial</h2>
+  <div class="card">
+    <p><strong>Step 1:</strong> Find a video reference for rotoscoping.</p>
+  </div>
+
+  <h2>Weekly Progress</h2>
+  <div class="weeks">
+    <div class="week-box">Week 1</div>
+    <div class="week-box">Week 2</div>
+    <div class="week-box">Week 3</div>
+    <div class="week-box">Week 4</div>
+    <div class="week-box">Week 5</div>
+    <div class="week-box">Week 6</div>
+    <div class="week-box">Week 7</div>
+    <div class="week-box">Week 8</div>
+    <div class="week-box">Week 9</div>
+    <div class="week-box">Week 10</div>
+    <div class="week-box">Week 11</div>
+    <div class="week-box">Week 12</div>
+  </div>
+</section>
+
+<section id="about">
+  <h1>About</h1>
+  <p>This website showcases multimedia projects focusing on rotoscoping and 3D rendering.</p>
+</section>
+
+<script>
+  function showSection(id) {
+    const sections = document.querySelectorAll('section');
+    sections.forEach(sec => sec.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+  }
+</script>
+
+</body>
+</html>
