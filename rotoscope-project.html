@@ -232,15 +232,15 @@
     /* TUTORIAL STEPS */
     .tutorial-steps {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 25px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
     }
 
     .step {
       background: linear-gradient(135deg, #ffffff 0%, #fef9fc 100%);
       border: 1px solid rgba(247, 154, 175, 0.12);
-      border-radius: 16px;
-      padding: 40px;
+      border-radius: 14px;
+      padding: 24px;
       transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       position: relative;
       overflow: hidden;
@@ -252,7 +252,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      width: 4px;
+      width: 3px;
       height: 100%;
       background: linear-gradient(180deg, #f79aaf 0%, #f5788d 100%);
       transform: scaleY(0);
@@ -265,39 +265,40 @@
     }
 
     .step:hover {
-      transform: translateX(8px);
-      box-shadow: 0 20px 50px rgba(247, 154, 175, 0.12);
-      border-color: rgba(247, 154, 175, 0.2);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 35px rgba(247, 154, 175, 0.15);
+      border-color: rgba(247, 154, 175, 0.18);
     }
 
     .step-number {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 48px;
-      height: 48px;
+      width: 36px;
+      height: 36px;
       background: linear-gradient(135deg, #f79aaf 0%, #f5788d 100%);
       color: white;
       border-radius: 50%;
       font-weight: 700;
-      font-size: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 8px 20px rgba(247, 154, 175, 0.25);
+      font-size: 16px;
+      margin-bottom: 12px;
+      box-shadow: 0 6px 16px rgba(247, 154, 175, 0.22);
+      flex-shrink: 0;
     }
 
     .step h3 {
-      font-size: 24px;
-      margin-bottom: 18px;
+      font-size: 18px;
+      margin-bottom: 12px;
       color: #1a1a2e;
       font-weight: 700;
       letter-spacing: -0.3px;
     }
 
     .step p {
-      color: #555;
-      line-height: 1.9;
-      font-size: 15px;
-      margin-bottom: 25px;
+      color: #666;
+      line-height: 1.6;
+      font-size: 13px;
+      margin-bottom: 0;
     }
 
     .step-video-container {
@@ -305,9 +306,14 @@
       aspect-ratio: 16 / 9;
       background: linear-gradient(135deg, rgba(247, 154, 175, 0.05) 0%, rgba(245, 120, 141, 0.05) 100%);
       border: 1px solid rgba(247, 154, 175, 0.12);
-      border-radius: 12px;
+      border-radius: 10px;
       overflow: hidden;
-      margin-top: 20px;
+      margin-top: 12px;
+      display: none;
+    }
+
+    .step:hover .step-video-container {
+      display: block;
     }
 
     .step-video-container iframe {
@@ -324,10 +330,10 @@
       justify-content: center;
       background: linear-gradient(135deg, rgba(247, 154, 175, 0.08) 0%, rgba(245, 120, 141, 0.08) 100%);
       color: #f79aaf;
-      font-size: 15px;
+      font-size: 12px;
       font-weight: 600;
       text-align: center;
-      padding: 40px;
+      padding: 20px;
     }
 
     /* WEEKLY PROGRESS */
