@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Multimedia Portfolio</title>
+
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
     * {
       margin: 0;
@@ -13,47 +14,10 @@
       box-sizing: border-box;
     }
 
-    /* Color Palette & Animations */
-    @keyframes fade {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-    }
-
-    @keyframes slideInLeft {
-      from { opacity: 0; transform: translateX(-30px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-
-    @keyframes slideInRight {
-      from { opacity: 0; transform: translateX(30px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-
-    @keyframes shimmer {
-      0% { background-position: -1000px 0; }
-      100% { background-position: 1000px 0; }
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-
-    @keyframes hover-glow {
-      0%, 100% { box-shadow: 0 10px 25px rgba(247, 154, 175, 0.1); }
-      50% { box-shadow: 0 15px 40px rgba(247, 154, 175, 0.25); }
-    }
-
     body {
       font-family: 'Inter', sans-serif;
-      background: #000000;
-      color: #ffffff;
-      min-height: 100vh;
+      background: white;
+      color: black;
     }
 
     h1, h2, h3 {
@@ -66,39 +30,26 @@
       justify-content: space-between;
       align-items: center;
       padding: 20px 60px;
-      border-bottom: 2px solid rgba(247, 154, 175, 0.3);
-      background: linear-gradient(90deg, #000000 0%, #0a0a0a 50%, #000000 100%);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      animation: fade 0.5s ease;
+      border-bottom: 1px solid #eee;
     }
 
     .logo {
       font-size: 22px;
       font-weight: 700;
       color: #f79aaf;
-      letter-spacing: 1px;
-      transition: all 0.3s ease;
-    }
-
-    .logo:hover {
-      cursor: pointer;
-      text-shadow: 0 0 15px rgba(247, 154, 175, 0.3);
     }
 
     .nav-links {
       display: flex;
-      gap: 40px;
+      gap: 30px;
     }
 
     .nav-links a {
       text-decoration: none;
-      color: #ffffff;
-      font-weight: 600;
+      color: black;
+      font-weight: 500;
       position: relative;
       cursor: pointer;
-      transition: all 0.3s ease;
     }
 
     .nav-links a::after {
@@ -108,12 +59,8 @@
       height: 2px;
       background: #f79aaf;
       left: 0;
-      bottom: -8px;
-      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-
-    .nav-links a:hover {
-      color: #f79aaf;
+      bottom: -5px;
+      transition: 0.3s;
     }
 
     .nav-links a:hover::after {
@@ -125,23 +72,22 @@
       display: none;
       padding: 80px 60px;
       min-height: 100vh;
-      animation: fade 0.6s ease;
-      max-width: 1200px;
-      margin: 0 auto;
+      animation: fade 0.5s ease;
     }
 
     section.active {
       display: block;
     }
 
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     /* HOME */
     .home h1 {
-      font-size: 56px;
+      font-size: 48px;
       margin-bottom: 20px;
-      font-weight: 800;
-      letter-spacing: -1px;
-      animation: slideInLeft 0.8s ease-out;
-      text-transform: uppercase;
     }
 
     .home span {
@@ -149,793 +95,67 @@
     }
 
     .home p {
-      max-width: 600px;
-      line-height: 1.8;
-      font-size: 16px;
-      color: #e0e0e0;
-      margin-bottom: 30px;
-      animation: slideInLeft 1s ease-out 0.2s both;
+      max-width: 500px;
+      line-height: 1.6;
     }
 
     /* PORTFOLIO */
-    .portfolio h1 {
-      font-size: 48px;
-      margin-bottom: 40px;
-      animation: slideInLeft 0.8s ease-out;
-    }
-
     .portfolio-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
       margin-top: 40px;
     }
 
     .card {
-      border: 2px solid rgba(247, 154, 175, 0.3);
-      padding: 30px;
-      border-radius: 15px;
-      transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      border: 1px solid #eee;
+      padding: 20px;
+      border-radius: 12px;
+      transition: 0.3s;
       cursor: pointer;
-      background: linear-gradient(135deg, rgba(247, 154, 175, 0.05) 0%, rgba(247, 154, 175, 0.02) 100%);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, transparent, rgba(247, 154, 175, 0.1), transparent);
-      transform: rotate(45deg);
-      animation: shimmer 4s infinite;
     }
 
     .card:hover {
-      transform: translateY(-12px);
+      transform: translateY(-8px);
       border-color: #f79aaf;
-      box-shadow: 0 20px 50px rgba(247, 154, 175, 0.3), inset 0 0 20px rgba(247, 154, 175, 0.1);
-      background: linear-gradient(135deg, rgba(247, 154, 175, 0.1) 0%, rgba(247, 154, 175, 0.05) 100%);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
     }
 
     .card h3 {
-      color: #ffffff;
-      margin-bottom: 15px;
-      font-size: 24px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .card p {
-      color: #d0d0d0;
-      line-height: 1.7;
-      position: relative;
-      z-index: 1;
+      color: #f79aaf;
+      margin-bottom: 10px;
     }
 
     /* ABOUT */
-    .about h1 {
-      font-size: 48px;
-      margin-bottom: 50px;
-      animation: slideInLeft 0.8s ease-out;
-    }
-
-    .profile-container {
-      display: flex;
-      gap: 60px;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      background: linear-gradient(135deg, rgba(247, 154, 175, 0.08) 0%, rgba(247, 154, 175, 0.02) 100%);
-      padding: 50px;
-      border-radius: 20px;
-      border: 2px solid rgba(247, 154, 175, 0.3);
-      animation: fade 0.8s ease-out;
-    }
-
-    .profile-photo {
-      flex-shrink: 0;
-      width: 280px;
-      height: 360px;
-      background: linear-gradient(135deg, #f79aaf 0%, #dd9faf 100%);
-      border-radius: 15px;
-      border: 3px solid #f79aaf;
-      box-shadow: 0 0 40px rgba(247, 154, 175, 0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(255, 255, 255, 0.3);
-      overflow: hidden;
-      transition: all 0.5s ease;
-      position: relative;
-    }
-
-    .profile-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: all 0.5s ease;
-    }
-
-    .profile-photo:hover img {
-      transform: scale(1.08);
-      filter: brightness(1.1);
-    }
-
-    .profile-info {
-      flex: 1;
-      min-width: 350px;
-      animation: slideInRight 0.8s ease-out;
-    }
-
-    .profile-info h2 {
-      font-size: 36px;
-      color: #ffffff;
-      margin-bottom: 8px;
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
-
-    .profile-info .program {
-      font-size: 16px;
-      color: #f79aaf;
-      font-weight: 700;
-      margin-bottom: 25px;
-      letter-spacing: 1px;
-    }
-
-    .profile-info .intro-text {
-      color: #d0d0d0;
-      line-height: 1.9;
-      margin-bottom: 30px;
-      font-weight: 400;
-    }
-
-    .profile-highlights {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      margin-bottom: 30px;
-    }
-
-    .profile-highlights li {
-      color: #f79aaf;
-      list-style: none;
-      padding-left: 30px;
-      position: relative;
-      font-size: 15px;
-      transition: all 0.4s ease;
-      font-weight: 600;
-    }
-
-    .profile-highlights li:hover {
-      color: #ffffff;
-      padding-left: 40px;
-      transform: translateX(5px);
-    }
-
-    .profile-highlights li:before {
-      content: "▶";
-      position: absolute;
-      left: 0;
-      color: #f79aaf;
-      font-size: 12px;
-      animation: float 2.5s ease-in-out infinite;
-    }
-
-    .profile-highlights li span {
-      color: #b0b0b0;
-      font-weight: 400;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .social-links a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 50px;
-      height: 50px;
-      background: rgba(247, 154, 175, 0.12);
-      border: 2px solid #f79aaf;
-      border-radius: 50%;
-      color: #f79aaf;
-      text-decoration: none;
-      font-size: 22px;
-      transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .social-links a::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
-      animation: pulse 3s ease-in-out infinite;
-    }
-
-    .social-links a:hover {
-      background: #f79aaf;
-      color: #000000;
-      transform: translateY(-8px) rotate(15deg) scale(1.2);
-      box-shadow: 0 0 35px rgba(247, 154, 175, 0.5);
+    .about p {
+      max-width: 600px;
+      line-height: 1.7;
     }
 
     /* BUTTON */
     .btn {
       display: inline-block;
       margin-top: 20px;
-      padding: 12px 30px;
+      padding: 10px 20px;
       background: #f79aaf;
-      color: #000000;
-      border-radius: 25px;
+      color: white;
+      border-radius: 20px;
       text-decoration: none;
-      transition: all 0.4s ease;
-      font-weight: 700;
-      border: 2px solid #f79aaf;
-      cursor: pointer;
-      animation: slideInLeft 1.2s ease-out 0.4s both;
+      transition: 0.3s;
     }
 
     .btn:hover {
-      background: transparent;
-      color: #f79aaf;
-      box-shadow: 0 0 20px rgba(247, 154, 175, 0.4);
-      transform: translateY(-3px);
+      opacity: 0.8;
     }
 
-    /* FOOTER */
-    footer {
-      background: linear-gradient(90deg, #000000 0%, #0a0a0a 50%, #000000 100%);
-      color: #f79aaf;
-      text-align: center;
-      padding: 40px 60px;
-      margin-top: 80px;
-      border-top: 2px solid rgba(247, 154, 175, 0.3);
-      font-size: 15px;
-    }
-
-    footer p {
-      color: #b0b0b0;
-      font-weight: 500;
-    }
-
-    footer .footer-highlight {
-      color: #f79aaf;
-      font-weight: 700;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      nav {
-        padding: 15px 30px;
-        flex-direction: column;
-        gap: 20px;
-      }
-
-      section {
-        padding: 60px 30px;
-      }
-
-      .profile-container {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .profile-info {
-        text-align: center;
-      }
-
-      .profile-highlights {
-        align-items: center;
-      }
-
-      .social-links {
-        justify-content: center;
-      }
-    }
-
-  </style>
-    
-    nav {
-      background: linear-gradient(90deg, #000000 0%, #0a0a0a 50%, #000000 100%);
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 30px;
-      box-shadow: 0 8px 30px rgba(247, 154, 175, 0.25), inset 0 -2px 10px rgba(247, 154, 175, 0.05);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 3px solid #f79aaf;
-      backdrop-filter: blur(15px);
-      animation: boxGlow 3s ease-in-out infinite;
-    }
-    
-    nav .logo {
-      font-family: 'Montserrat', sans-serif;
-      color: #f79aaf;
-      font-size: 22px;
-      font-weight: 700;
-      text-decoration: none;
-      letter-spacing: 1px;
-      white-space: nowrap;
-      cursor: pointer;
-    }
-    
-    nav .nav-links {
-      display: flex;
-      gap: 40px;
-    }
-    
-    nav a {
-      color: #f79aaf;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 16px;
-      padding: 12px 25px;
-      border-radius: 10px;
-      transition: all 0.5s ease;
-      position: relative;
-      border: 2px solid #f79aaf;
-      background: transparent;
-    }
-    
-    nav a::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(45deg, transparent 30%, rgba(247, 154, 175, 0.1) 50%, transparent 70%);
-      border-radius: 10px;
-      animation: shimmer 3s infinite;
-    }
-    
-    nav a:hover {
-      background: rgba(247, 154, 175, 0.15);
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(247, 154, 175, 0.4), inset 0 0 15px rgba(247, 154, 175, 0.2);
-      border-color: #dd9faf;
-    }
-    
-    section {
-      display: none;
-      padding: 80px 40px;
-      max-width: 1200px;
-      margin: 0 auto;
-      animation: fadeIn 0.9s ease-out;
-    }
-    
-    section.active {
-      display: block;
-    }
-    
-    h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 56px;
-      color: #ffffff;
-      margin-bottom: 25px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      animation: slideInLeft 0.8s ease-out;
-      text-transform: uppercase;
-    }
-    
-    h2 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 32px;
-      color: #f79aaf;
-      margin-top: 40px;
-      margin-bottom: 20px;
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
-    
-    h3 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 22px;
-      color: #ffffff;
-      margin-bottom: 15px;
-      font-weight: 700;
-      transition: all 0.4s ease;
-    }
-    
-    p {
-      line-height: 1.9;
-      color: #ffffff;
-      font-size: 16px;
-      margin-bottom: 18px;
-      font-weight: 400;
-    }
-    
-    #home {
-      background: linear-gradient(135deg, rgba(247, 154, 175, 0.1) 0%, rgba(247, 154, 175, 0.03) 100%);
-      border-radius: 20px;
-      margin-top: 40px;
-      border: 3px solid #f79aaf;
-      box-shadow: 0 0 35px rgba(247, 154, 175, 0.2), inset 0 0 35px rgba(247, 154, 175, 0.05);
-      animation: boxGlow 3s ease-in-out infinite;
-      padding: 60px;
-    }
-    
-    #home h1 {
-      font-size: 64px;
-      color: #ffffff;
-      margin-bottom: 15px;
-      animation: slideInLeft 0.8s ease-out;
-    }
-    
-    #home h2 {
-      color: #f79aaf;
-      font-size: 36px;
-      margin-bottom: 30px;
-      animation: slideInRight 1s ease-out;
-    }
-    
-    .card {
-      background: linear-gradient(135deg, rgba(247, 154, 175, 0.1) 0%, rgba(247, 154, 175, 0.03) 100%);
-      padding: 30px;
-      border-radius: 15px;
-      margin: 20px;
-      box-shadow: 0 10px 40px rgba(247, 154, 175, 0.15);
-      transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-      cursor: pointer;
-      border: 3px solid #f79aaf;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .card::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, transparent, rgba(247, 154, 175, 0.1), transparent);
-      transform: rotate(45deg);
-      animation: shimmer 4s infinite;
-    }
-    
-    .card:hover {
-      transform: translateY(-15px) scale(1.03);
-      box-shadow: 0 20px 60px rgba(247, 154, 175, 0.35), inset 0 0 30px rgba(247, 154, 175, 0.15);
-      border-color: #dd9faf;
-      background: linear-gradient(135deg, rgba(247, 154, 175, 0.15) 0%, rgba(247, 154, 175, 0.05) 100%);
-    }
-    
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
-      margin-top: 40px;
-    }
-    
-    .thumbnail {
-      width: 100%;
-      height: 200px;
-      background: linear-gradient(135deg, #f79aaf 0%, #dd9faf 100%);
-      border-radius: 12px;
-      margin-bottom: 20px;
-      transition: all 0.6s ease;
-      box-shadow: 0 0 25px rgba(247, 154, 175, 0.3);
-      border: 2px solid #f79aaf;
-      animation: pulse 3s ease-in-out infinite;
-    }
-    
-    .card:hover .thumbnail {
-      transform: scale(1.12) rotate(3deg);
-      box-shadow: 0 0 40px rgba(247, 154, 175, 0.4);
-    }
-    
-    .video-container {
-      width: 100%;
-      height: 550px;
-      background: linear-gradient(135deg, #f79aaf 0%, #dd9faf 100%);
-      border-radius: 15px;
-      margin: 40px 0;
-      box-shadow: 0 15px 50px rgba(247, 154, 175, 0.3);
-      border: 3px solid #f79aaf;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .video-container::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.08), transparent);
-      animation: shimmer 4s infinite;
-    }
-    
-    .weeks {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 25px;
-      margin-top: 40px;
-    }
-    
-    .week-box {
-      background: linear-gradient(135deg, #f79aaf 0%, #dd9faf 100%);
-      height: 160px;
-      border-radius: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 10px 40px rgba(247, 154, 175, 0.3);
-      color: #ffffff;
-      font-weight: 700;
-      font-size: 18px;
-      transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      border: 2px solid rgba(255, 255, 255, 0.2);
-      animation: float 4s ease-in-out infinite;
-    }
-    
-    .week-box::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
-      animation: pulse 3s ease-in-out infinite;
-    }
-    
-    .week-box:hover {
-      transform: translateY(-15px) scale(1.08) rotate(2deg);
-      box-shadow: 0 20px 60px rgba(247, 154, 175, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.2);
-    }
-    
-    footer {
-      background: linear-gradient(90deg, #000000 0%, #0a0a0a 50%, #000000 100%);
-      color: #f79aaf;
-      text-align: center;
-      padding: 40px 20px;
-      margin-top: 80px;
-      font-size: 15px;
-      border-top: 3px solid #f79aaf;
-      box-shadow: 0 -8px 25px rgba(247, 154, 175, 0.15);
-    }
-    
-    footer p {
-      color: #f79aaf;
-      font-weight: 600;
-    }
-    
-    .social-links {
-      display: flex;
-      justify-content: flex-start;
-      gap: 25px;
-      flex-wrap: wrap;
-      margin-top: 30px;
-    }
-    
-    .social-links a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 55px;
-      height: 55px;
-      background: rgba(247, 154, 175, 0.1);
-      border: 3px solid #f79aaf;
-      border-radius: 50%;
-      color: #f79aaf;
-      text-decoration: none;
-      font-size: 24px;
-      transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-      font-weight: bold;
-      box-shadow: 0 0 15px rgba(247, 154, 175, 0.2);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .social-links a::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
-      animation: pulse 3s ease-in-out infinite;
-    }
-    
-    .social-links a:hover {
-      background: #f79aaf;
-      color: #000000;
-      transform: translateY(-12px) rotate(20deg) scale(1.15);
-      box-shadow: 0 0 40px rgba(247, 154, 175, 0.5), inset 0 0 15px rgba(255, 255, 255, 0.3);
-    }
-    
-    .steps-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
-    }
-    
-    .step-card {
-      background: linear-gradient(135deg, rgba(247, 154, 175, 0.1) 0%, rgba(247, 154, 175, 0.03) 100%);
-      padding: 35px;
-      border-radius: 15px;
-      border: 3px solid #f79aaf;
-      box-shadow: 0 10px 40px rgba(247, 154, 175, 0.15);
-      transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .step-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(247, 154, 175, 0.15), transparent);
-      animation: slideInRight 3s infinite;
-    }
-    
-    .step-card:hover {
-      transform: translateY(-15px) translateX(8px);
-      box-shadow: 0 20px 60px rgba(247, 154, 175, 0.3), inset 0 0 30px rgba(247, 154, 175, 0.1);
-      border-color: #dd9faf;
-      background: linear-gradient(135deg, rgba(247, 154, 175, 0.15) 0%, rgba(247, 154, 175, 0.05) 100%);
-    }
-    
-    .step-card h3 {
-      color: #ffffff;
-      margin-bottom: 20px;
-      position: relative;
-      z-index: 1;
-      font-size: 24px;
-    }
-    
-    .step-card p {
-      margin-bottom: 20px;
-      color: #ffffff;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .step-card iframe {
-      border-radius: 10px;
-      border: 3px solid #f79aaf;
-      margin-top: 20px;
-      box-shadow: 0 0 20px rgba(247, 154, 175, 0.2);
-    }
-    
-    .profile-container {
-      display: flex;
-      gap: 50px;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      background: linear-gradient(135deg, rgba(247, 154, 175, 0.1) 0%, rgba(247, 154, 175, 0.03) 100%);
-      padding: 50px;
-      border-radius: 20px;
-      border: 3px solid #f79aaf;
-      margin-bottom: 50px;
-      box-shadow: 0 0 50px rgba(247, 154, 175, 0.2), inset 0 0 50px rgba(247, 154, 175, 0.05);
-      animation: boxGlow 3s ease-in-out infinite;
-    }
-    
-    .profile-photo {
-      flex-shrink: 0;
-      width: 280px;
-      height: 360px;
-      background: linear-gradient(135deg, #f79aaf 0%, #dd9faf 100%);
-      border-radius: 15px;
-      border: 4px solid #f79aaf;
-      box-shadow: 0 0 40px rgba(247, 154, 175, 0.3), 0 0 60px rgba(247, 154, 175, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(255, 255, 255, 0.3);
-      font-size: 16px;
-      overflow: hidden;
-      animation: boxGlow 3s ease-in-out infinite;
-      position: relative;
-    }
-    
-    .profile-photo::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.08), transparent);
-      animation: shimmer 4s infinite;
-    }
-    
-    .profile-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: all 0.5s ease;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .profile-photo:hover img {
-      transform: scale(1.08) rotate(1deg);
-      filter: brightness(1.12) contrast(1.08);
-    }
-    
-    .profile-info {
-      flex: 1;
-      min-width: 340px;
-    }
-    
-    .profile-info h2 {
-      font-size: 36px;
-      color: #ffffff;
-      margin-bottom: 8px;
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
-    
-    .profile-info .program {
-      font-size: 18px;
-      color: #dd9faf;
-      font-weight: 700;
-      margin-bottom: 25px;
-      font-family: 'Montserrat', sans-serif;
-      letter-spacing: 1px;
-    }
-    
-    .profile-info .intro-text {
-      color: #ffffff;
-      line-height: 2;
-      margin-bottom: 30px;
-      font-weight: 500;
-    }
-    
-    .profile-highlights {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-    
-    .profile-highlights li {
-      color: #f79aaf;
-      list-style: none;
-      padding-left: 30px;
-      position: relative;
-      font-size: 16px;
-      transition: all 0.4s ease;
-      font-weight: 600;
-    }
-    
-    .profile-highlights li:hover {
-      color: #dd9faf;
-      padding-left: 40px;
-      transform: translateX(5px);
-    }
-    
-    .profile-highlights li:before {
-      content: "▶";
-      position: absolute;
-      left: 0;
-      color: #dd9faf;
-      animation: bounce 2s ease-in-out infinite;
-      font-size: 14px;
-    }
-    
-    .profile-highlights li span {
-      color: #ffffff;
-      font-weight: 400;
-    }
   </style>
 </head>
+
 <body>
 
   <!-- NAVBAR -->
   <nav>
-    <div class="logo">🎬 Multimedia Portfolio</div>
+    <div class="logo">Multimedia Portfolio</div>
     <div class="nav-links">
       <a onclick="showSection('home')">Home</a>
       <a onclick="showSection('portfolio')">Portfolio</a>
@@ -945,27 +165,32 @@
 
   <!-- HOME -->
   <section id="home" class="home active">
-    <h1>Hello, I'm <span>Jaqueline</span></h1>
+    <h1>Hello, welcome to my <span>Multimedia Portfolio</span></h1>
     <p>
-      A passionate multimedia creator exploring the art of rotoscoping and the realism of 3D rendering. 
-      I create compelling visual narratives by merging creativity with technology to bring motion and dimension to digital storytelling.
+      This website showcases my creative projects, designs, and multimedia works.
+      Explore my portfolio to see what I’ve been working on!
     </p>
-    <a href="#" class="btn" onclick="showSection('portfolio')">View My Projects</a>
+    <a href="#" class="btn" onclick="showSection('portfolio')">View Projects</a>
   </section>
 
   <!-- PORTFOLIO -->
-  <section id="portfolio" class="portfolio">
+  <section id="portfolio">
     <h1>My Projects</h1>
 
     <div class="portfolio-grid">
       <div class="card">
-        <h3>3D Solar System</h3>
-        <p>A comprehensive 3D rendering project showcasing planetary motion and realistic astronomical visualization using advanced rendering techniques.</p>
+        <h3>Project 1</h3>
+        <p>A creative multimedia project showcasing design and animation.</p>
       </div>
 
       <div class="card">
-        <h3>1-Minute Video Rotoscope</h3>
-        <p>A detailed frame-by-frame rotoscoping project demonstrating precision animation and manual tracing techniques in professional video editing.</p>
+        <h3>Project 2</h3>
+        <p>A web-based project focusing on UI/UX and interaction.</p>
+      </div>
+
+      <div class="card">
+        <h3>Project 3</h3>
+        <p>A digital artwork or video editing showcase.</p>
       </div>
     </div>
   </section>
@@ -973,49 +198,18 @@
   <!-- ABOUT -->
   <section id="about" class="about">
     <h1>About Me</h1>
-
-    <div class="profile-container">
-      <div class="profile-photo">
-        <img src="profile.jpg" alt="Profile Photo">
-      </div>
-
-      <div class="profile-info">
-        <h2>JAQUELINE O. DENUM</h2>
-        <p class="program">BSIT - NS - 2A</p>
-
-        <p class="intro-text">
-          Step into my creative digital portfolio where I showcase my expertise and passion for 3D rendering and rotoscoping. 
-          Browse through diverse projects that highlight my proficiency with various multimedia software and innovative techniques 
-          for developing captivating 3D models and animations.
-        </p>
-
-        <ul class="profile-highlights">
-          <li><span>Master frame-by-frame rotoscoping methodologies using Adobe After Effects</span></li>
-          <li><span>Explore Python scripting capabilities in Blender to streamline 3D modeling workflows</span></li>
-          <li><span>Track weekly development updates showcasing creative progress and workflow optimization</span></li>
-          <li><span>Experience comprehensive displays of completed projects and refined artwork</span></li>
-        </ul>
-
-        <div class="social-links">
-          <a href="https://www.facebook.com/share/17x2oUhYKY/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/jaq_of.hearts?igsh=MW5lYmY2bzl0a3g2dw==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="https://github.com/Jaqqqqqqq" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/denum-jaqueline-6824b9404" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-      </div>
-    </div>
+    <p>
+      I am a multimedia creator passionate about design, web development, and digital content.
+      This portfolio highlights my journey, skills, and creative outputs.
+    </p>
   </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2026 <span class="footer-highlight">Jaqueline O. Denum</span> BSIT-NS-2A. All rights reserved.</p>
-  </footer>
 
   <!-- SCRIPT -->
   <script>
     function showSection(sectionId) {
       const sections = document.querySelectorAll("section");
       sections.forEach(sec => sec.classList.remove("active"));
+
       document.getElementById(sectionId).classList.add("active");
     }
   </script>
