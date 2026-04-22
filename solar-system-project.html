@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3RD Solar System - Multimedia Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #ffffff 0%, #faf8fb 100%);
+      color: #2c2c2c;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: -0.5px;
+    }
+
+    /* NAVBAR */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 60px;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(247, 154, 175, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #f79aaf 0%, #f5788d 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.5px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #2c2c2c;
+      font-weight: 500;
+      position: relative;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 15px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2.5px;
+      background: linear-gradient(90deg, #f79aaf 0%, #f5788d 100%);
+      left: 0;
+      bottom: -8px;
+      transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      border-radius: 2px;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* CONTENT */
+    .content {
+      padding: 80px 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+      animation: fadeIn 0.6s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes fadeIn {
+      from { 
+        opacity: 0; 
+        transform: translateY(15px); 
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0); 
+      }
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #f79aaf;
+      text-decoration: none;
+      font-weight: 600;
+      margin-bottom: 40px;
+      transition: 0.3s;
+    }
+
+    .back-link:hover {
+      gap: 15px;
+    }
+
+    .content h1 {
+      font-size: 48px;
+      margin-bottom: 40px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      background: linear-gradient(135deg, #f79aaf 0%, #f5788d 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* SECTION */
+    .section {
+      margin-bottom: 80px;
+    }
+
+    .section h2 {
+      font-size: 32px;
+      margin-bottom: 30px;
+      color: #2c2c2c;
+      font-weight: 700;
+      padding-bottom: 15px;
+      border-bottom: 2px solid rgba(247, 154, 175, 0.2);
+    }
+
+    /* VIDEO CONTAINER */
+    .video-container {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: linear-gradient(135deg, #ffffff 0%, #fef9fc 100%);
+      border: 2px solid rgba(247, 154, 175, 0.2);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(247, 154, 175, 0.1);
+    }
+
+    .video-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .video-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(247, 154, 175, 0.1) 0%, rgba(245, 120, 141, 0.1) 100%);
+      color: #f79aaf;
+      font-size: 18px;
+      font-weight: 600;
+      text-align: center;
+      padding: 40px;
+    }
+
+    /* PROJECT INFO */
+    .project-info {
+      background: linear-gradient(135deg, #ffffff 0%, #fef9fc 100%);
+      border: 1px solid rgba(247, 154, 175, 0.15);
+      border-radius: 12px;
+      padding: 30px;
+      line-height: 1.8;
+      color: #666;
+    }
+
+    .project-info h3 {
+      color: #2c2c2c;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .project-info p {
+      margin-bottom: 15px;
+    }
+
+    .project-info ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 15px;
+    }
+
+    .project-info li {
+      padding: 10px 0;
+      padding-left: 25px;
+      position: relative;
+    }
+
+    .project-info li::before {
+      content: "✦";
+      position: absolute;
+      left: 0;
+      color: #f79aaf;
+      font-weight: bold;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="index.html" class="logo">Multimedia Portfolio</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="about.html">About</a>
+    </div>
+  </nav>
+
+  <!-- PROJECT CONTENT -->
+  <div class="content">
+    <a href="portfolio.html" class="back-link">← Back to Portfolio</a>
+    <h1>3RD Solar System</h1>
+
+    <!-- SECTION 1: PROJECT SHOWCASE -->
+    <div class="section">
+      <h2>Project Showcase</h2>
+      <div class="video-container">
+        <div class="video-placeholder">
+          Upload your 3D solar system rendering video on YouTube, then paste the embed link here
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: PROJECT DETAILS -->
+    <div class="section">
+      <h2>Project Details</h2>
+      <div class="project-info">
+        <h3>Overview</h3>
+        <p>This 3D rendering project showcases an immersive solar system visualization with realistic planetary models and orbital mechanics. The project demonstrates advanced 3D modeling, animation, and rendering techniques using industry-standard software.</p>
+        
+        <h3 style="margin-top: 30px;">Key Features</h3>
+        <ul>
+          <li>Realistic planetary models with accurate proportions</li>
+          <li>Dynamic orbital mechanics and celestial movements</li>
+          <li>Advanced lighting and shadow techniques</li>
+          <li>High-quality texturing and material properties</li>
+          <li>Smooth camera animations and transitions</li>
+          <li>Professional rendering and post-production effects</li>
+        </ul>
+
+        <h3 style="margin-top: 30px;">Tools & Software Used</h3>
+        <ul>
+          <li>Blender - 3D modeling and rendering</li>
+          <li>Python scripting for workflow automation</li>
+          <li>Adobe After Effects for post-production</li>
+          <li>Substance Painter for texturing</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

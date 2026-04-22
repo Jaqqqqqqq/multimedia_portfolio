@@ -194,7 +194,7 @@
     .card {
       background: linear-gradient(135deg, #ffffff 0%, #fef9fc 100%);
       border: 1px solid rgba(247, 154, 175, 0.15);
-      padding: 35px;
+      padding: 0;
       border-radius: 16px;
       transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       cursor: pointer;
@@ -202,6 +202,51 @@
       overflow: hidden;
       animation: scaleIn 0.6s ease both;
       backdrop-filter: blur(10px);
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-thumbnail {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, #f79aaf 0%, #f5788d 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-thumbnail::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(247, 154, 175, 0.3) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .card:hover .card-thumbnail::before {
+      opacity: 1;
+    }
+
+    .card-content {
+      padding: 30px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
 
     .card:nth-child(1) {
@@ -273,7 +318,7 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
       font-size: 22px;
       font-weight: 700;
       letter-spacing: -0.5px;
@@ -308,15 +353,25 @@
     <p class="portfolio-subtitle">Explore my collection of creative works showcasing expertise in 3D rendering and rotoscoping techniques.</p>
 
     <div class="portfolio-grid">
-      <div class="card">
-        <h3>3RD Solar System</h3>
-        <p>A 3D rendering project showcasing an immersive solar system visualization with realistic planetary models and orbital mechanics.</p>
-      </div>
+      <a href="rotoscope-project.html" class="card">
+        <div class="card-thumbnail">
+          <span>Rotoscope Thumbnail</span>
+        </div>
+        <div class="card-content">
+          <h3>1-Minute Video Rotoscope</h3>
+          <p>A rotoscoping project demonstrating frame-by-frame animation and digital artistic techniques applied to video content.</p>
+        </div>
+      </a>
 
-      <div class="card">
-        <h3>1-Minute Video Rotoscope</h3>
-        <p>A rotoscoping project demonstrating frame-by-frame animation and digital artistic techniques applied to video content.</p>
-      </div>
+      <a href="solar-system-project.html" class="card">
+        <div class="card-thumbnail">
+          <span>3D Solar System Thumbnail</span>
+        </div>
+        <div class="card-content">
+          <h3>3RD Solar System</h3>
+          <p>A 3D rendering project showcasing an immersive solar system visualization with realistic planetary models and orbital mechanics.</p>
+        </div>
+      </a>
     </div>
   </div>
 
