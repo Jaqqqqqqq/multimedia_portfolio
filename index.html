@@ -219,35 +219,59 @@
       height: 100vh;
       pointer-events: none;
       z-index: 0;
-      will-change: transform;
       background: linear-gradient(135deg, #fafbff 0%, #fef8fb 50%, #fff8fc 100%);
+      overflow: hidden;
     }
 
     /* Parallax animated shapes */
     .parallax-bg::before {
       content: "";
       position: absolute;
-      top: -10%;
-      left: 10%;
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle, rgba(247, 154, 175, 0.12) 0%, transparent 70%);
+      top: 5%;
+      left: 5%;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(247, 154, 175, 0.15) 0%, transparent 70%);
       border-radius: 50%;
       animation: float 8s ease-in-out infinite;
-      will-change: transform;
     }
 
     .parallax-bg::after {
       content: "";
       position: absolute;
-      bottom: -5%;
-      right: 10%;
-      width: 350px;
-      height: 350px;
-      background: radial-gradient(circle, rgba(245, 120, 141, 0.08) 0%, transparent 70%);
+      bottom: 5%;
+      right: 5%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(245, 120, 141, 0.12) 0%, transparent 70%);
       border-radius: 50%;
       animation: float 10s ease-in-out infinite reverse;
-      will-change: transform;
+    }
+
+    /* Parallax shape elements */
+    .parallax-shape {
+      position: fixed;
+      pointer-events: none;
+      z-index: 0;
+      border-radius: 50%;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .parallax-left {
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(247, 154, 175, 0.15) 0%, transparent 70%);
+      top: 5%;
+      left: 5%;
+    }
+
+    .parallax-right {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(245, 120, 141, 0.12) 0%, transparent 70%);
+      bottom: 5%;
+      right: 5%;
+      animation: float 10s ease-in-out infinite reverse;
     }
 
     .home-content {
@@ -435,6 +459,8 @@
   <!-- HOME -->
   <section id="home" class="home active">
     <div class="parallax-bg" id="parallax-bg"></div>
+    <div class="parallax-shape parallax-left" id="shape-1"></div>
+    <div class="parallax-shape parallax-right" id="shape-2"></div>
     <div class="home-content">
       <h1>Hello, welcome to my <span>Multimedia Portfolio</span></h1>
       <p>
@@ -471,13 +497,17 @@
 
   <!-- PARALLAX SCROLL EFFECT -->
   <script>
-    // Subtle parallax scrolling effect
-    const parallaxBg = document.getElementById('parallax-bg');
+    // Parallax scrolling effect for shape elements
+    const shape1 = document.getElementById('shape-1');
+    const shape2 = document.getElementById('shape-2');
     
     window.addEventListener('scroll', () => {
       const scrolled = window.scrollY;
-      const parallaxStrength = scrolled * 0.4; // Subtle effect (0.4 = moves 40% of scroll distance)
-      parallaxBg.style.transform = `translateY(${parallaxStrength}px)`;
+      const parallaxFactor = 0.5; // Move shapes at 50% of scroll speed
+      
+      // Move shapes based on scroll position
+      shape1.style.transform = `translateY(${scrolled * parallaxFactor}px)`;
+      shape2.style.transform = `translateY(${scrolled * parallaxFactor}px)`;
     });
   </script>
 
