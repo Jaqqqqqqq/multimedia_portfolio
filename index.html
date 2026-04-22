@@ -352,9 +352,9 @@
   <nav>
     <div class="logo">Multimedia Portfolio</div>
     <div class="nav-links">
-      <a onclick="showSection('home')">Home</a>
-      <a onclick="showSection('portfolio')">Portfolio</a>
-      <a onclick="showSection('about')">About</a>
+      <a onclick="showSection(event, 'home')">Home</a>
+      <a onclick="showSection(event, 'portfolio')">Portfolio</a>
+      <a onclick="showSection(event, 'about')">About</a>
     </div>
   </nav>
 
@@ -363,9 +363,9 @@
     <h1>Hello, welcome to my <span>Multimedia Portfolio</span></h1>
     <p>
       This website showcases my creative projects, designs, and multimedia works.
-      Explore my portfolio to see what I’ve been working on!
+      Explore my portfolio to see what I've been working on!
     </p>
-    <a href="#" class="btn" onclick="showSection('portfolio')">View Projects</a>
+    <a onclick="showSection(event, 'portfolio')" class="btn">View Projects</a>
   </section>
 
   <!-- PORTFOLIO -->
@@ -409,7 +409,8 @@
 
   <!-- SCRIPT -->
   <script>
-    function showSection(sectionId) {
+    function showSection(event, sectionId) {
+      event.preventDefault();
       const sections = document.querySelectorAll("section");
       sections.forEach(sec => sec.classList.remove("active"));
 
