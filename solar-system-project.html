@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3RD Solar System - Multimedia Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0f0f1e 100%);
+      color: #ffffff;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Animated background shapes */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 20%;
+      left: 5%;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(106, 90, 205, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 8s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      bottom: 10%;
+      right: 5%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(123, 104, 238, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 10s ease-in-out infinite reverse;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(50px) rotate(8deg); }
+    }
+
+    h1, h2, h3 {
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: -0.5px;
+    }
+
+    /* NAVBAR */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 60px;
+      background: rgba(15, 15, 30, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(106, 90, 205, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #6A5ACD 0%, #7B68EE 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.5px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 500;
+      position: relative;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 15px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2.5px;
+      background: linear-gradient(90deg, #6A5ACD 0%, #7B68EE 100%);
+      left: 0;
+      bottom: -8px;
+      transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      border-radius: 2px;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* CONTENT */
+    .content {
+      padding: 80px 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+      animation: fadeIn 0.6s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes fadeIn {
+      from { 
+        opacity: 0; 
+        transform: translateY(15px); 
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0); 
+      }
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #6A5ACD;
+      text-decoration: none;
+      font-weight: 600;
+      margin-bottom: 40px;
+      transition: 0.3s;
+    }
+
+    .back-link:hover {
+      gap: 15px;
+    }
+
+    .content h1 {
+      font-size: 48px;
+      margin-bottom: 40px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      background: linear-gradient(135deg, #6A5ACD 0%, #7B68EE 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* SECTION */
+    .section {
+      margin-bottom: 80px;
+    }
+
+    .section h2 {
+      font-size: 32px;
+      margin-bottom: 30px;
+      color: #ffffff;
+      font-weight: 700;
+      padding-bottom: 15px;
+      border-bottom: 2px solid rgba(106, 90, 205, 0.15);
+    }
+
+    /* VIDEO CONTAINER */
+    .video-container {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+      border: 1px solid rgba(106, 90, 205, 0.2);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 50px rgba(106, 90, 205, 0.1), 0 0 1px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .video-container:hover {
+      box-shadow: 0 25px 70px rgba(106, 90, 205, 0.15), 0 0 1px rgba(0, 0, 0, 0.2);
+      transform: translateY(-4px);
+    }
+
+    .video-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .video-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(106, 90, 205, 0.1) 0%, rgba(123, 104, 238, 0.08) 100%);
+      color: #6A5ACD;
+      font-size: 18px;
+      font-weight: 600;
+      text-align: center;
+      padding: 40px;
+    }
+
+    /* PROJECT INFO */
+    .project-info {
+      background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+      border: 1px solid rgba(106, 90, 205, 0.15);
+      border-radius: 16px;
+      padding: 40px;
+      line-height: 1.9;
+      color: #b0b0b0;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .project-info h3 {
+      color: #ffffff;
+      margin-bottom: 18px;
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .project-info p {
+      margin-bottom: 15px;
+    }
+
+    .project-info ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 15px;
+    }
+
+    .project-info li {
+      padding: 10px 0;
+      padding-left: 25px;
+      position: relative;
+    }
+
+    .project-info li::before {
+      content: "✦";
+      position: absolute;
+      left: 0;
+      color: #6A5ACD;
+      font-weight: bold;
+      font-size: 12px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: rgba(15, 15, 30, 0.95);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(106, 90, 205, 0.15);
+      padding: 40px 60px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    footer p {
+      color: #b0b0b0;
+      font-size: 14px;
+      margin: 0;
+      letter-spacing: 0.5px;
+    }
+
+    footer p span {
+      background: linear-gradient(135deg, #6A5ACD 0%, #7B68EE 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 600;
+    }
+
+    /* PLANETS GRID */
+    .planets-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-bottom: 60px;
+    }
+
+    .planet-card {
+      background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+      border: 1px solid rgba(106, 90, 205, 0.2);
+      border-radius: 16px;
+      padding: 30px;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .planet-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(180deg, #6A5ACD 0%, #7B68EE 100%);
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 0.3s ease;
+    }
+
+    .planet-card:hover {
+      box-shadow: 0 15px 40px rgba(106, 90, 205, 0.25);
+      border-color: rgba(106, 90, 205, 0.4);
+      transform: translateY(-5px);
+    }
+
+    .planet-card:hover::before {
+      transform: scaleY(1);
+    }
+
+    .planet-card h3 {
+      font-size: 28px;
+      color: #6A5ACD;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .planet-image {
+      width: 100%;
+      height: 200px;
+      background: radial-gradient(circle at 30% 30%, rgba(106, 90, 205, 0.2), rgba(106, 90, 205, 0.05));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      border: 1px solid rgba(106, 90, 205, 0.1);
+      font-size: 14px;
+      color: #888;
+    }
+
+    .planet-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(106, 90, 205, 0.1);
+    }
+
+    .stat-row:last-child {
+      border-bottom: none;
+    }
+
+    .stat-label {
+      color: #b0b0b0;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .stat-value {
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .age-value {
+      color: #6A5ACD;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    /* CALCULATOR */
+    .calculator-section {
+      background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+      border: 1px solid rgba(106, 90, 205, 0.2);
+      border-radius: 16px;
+      padding: 40px;
+      margin-bottom: 60px;
+      text-align: center;
+    }
+
+    .calculator-section h2 {
+      font-size: 28px;
+      margin-bottom: 30px;
+      color: #ffffff;
+      border: none;
+      padding: 0;
+    }
+
+    .calculator-input-group {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .calculator-input-group input {
+      padding: 14px 20px;
+      font-size: 16px;
+      border: 2px solid rgba(106, 90, 205, 0.3);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      color: #ffffff;
+      width: 150px;
+      transition: 0.3s;
+    }
+
+    .calculator-input-group input:focus {
+      outline: none;
+      border-color: #6A5ACD;
+      background: rgba(106, 90, 205, 0.1);
+    }
+
+    .calculator-input-group input::placeholder {
+      color: #888;
+    }
+
+    .calc-button {
+      padding: 14px 40px;
+      font-size: 16px;
+      font-weight: 600;
+      background: linear-gradient(135deg, #6A5ACD 0%, #7B68EE 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 16px rgba(106, 90, 205, 0.3);
+    }
+
+    .calc-button:hover {
+      box-shadow: 0 10px 25px rgba(106, 90, 205, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .calc-button:active {
+      transform: translateY(0);
+    }
+
+    .calculator-info {
+      color: #888;
+      font-size: 14px;
+      margin-top: 15px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="index.html" class="logo">Multimedia Portfolio</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="about.html">About</a>
+    </div>
+  </nav>
+
+  <!-- PROJECT CONTENT -->
+  <div class="content">
+    <a href="portfolio.html" class="back-link">← Back to Portfolio</a>
+    <h1>3RD Solar System</h1>
+
+    <!-- SECTION 1: PROJECT SHOWCASE -->
+    <div class="section">
+      <h2>Project Showcase</h2>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/qj-cZxMfS80" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- SECTION 2: PROJECT DETAILS -->
+    <div class="section">
+      <h2>Project Details</h2>
+      <div class="project-info">
+        <h3>Overview</h3>
+        <p>This 3D rendering project showcases an immersive solar system visualization with realistic planetary models and orbital mechanics. The project demonstrates advanced 3D modeling, animation, and rendering techniques using industry-standard software.</p>
+        
+        <h3 style="margin-top: 30px;">Key Features</h3>
+        <ul>
+          <li>Realistic planetary models with accurate proportions</li>
+          <li>Dynamic orbital mechanics and celestial movements</li>
+          <li>Advanced lighting and shadow techniques</li>
+          <li>High-quality texturing and material properties</li>
+          <li>Smooth camera animations and transitions</li>
+          <li>Professional rendering and post-production effects</li>
+        </ul>
+
+        <h3 style="margin-top: 30px;">Tools & Software Used</h3>
+        <ul>
+          <li>Blender - 3D modeling and rendering</li>
+          <li>Python scripting for workflow automation</li>
+          <li>Adobe After Effects for post-production</li>
+          <li>Substance Painter for texturing</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SECTION 3: CELESTIAL BODIES & ORBITAL DYNAMICS -->
+    <div class="section">
+      <h2>Celestial Bodies & Orbital Dynamics</h2>
+      <div class="planets-grid" id="planetsGrid">
+        <!-- Planets will be generated by JavaScript -->
+      </div>
+    </div>
+
+    <!-- SECTION 4: AGE CALCULATOR -->
+    <div class="section">
+      <div class="calculator-section">
+        <h2>🚀 Calculate Time & Motion in the Solar System</h2>
+        <div class="calculator-input-group">
+          <input type="number" id="earthAgeInput" placeholder="18" min="0" step="0.1">
+          <button class="calc-button" onclick="calculatePlanetaryAges()">📊 Calculate</button>
+        </div>
+        <p class="calculator-info">ℹ️ Enter Earth years to see ages, revolutions, orbital periods, and distances for all planets</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p><span>© 2026 Jaqueline O. Denum</span> BSIT-NS-T-2A. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Planet data: orbital period in Earth years, and AU (Astronomical Units) from the sun
+    const planets = [
+      {
+        name: 'Sun',
+        orbitalPeriod: 0,
+        distanceFromSun: 0,
+        description: 'The center of our solar system, a massive star composed primarily of hydrogen and helium.',
+        type: 'Star'
+      },
+      {
+        name: 'Mercury',
+        orbitalPeriod: 0.24,
+        distanceFromSun: 57.9,
+        description: 'The smallest and innermost planet, Mercury has extreme temperature variations and extreme.',
+        type: 'Terrestrial'
+      },
+      {
+        name: 'Venus',
+        orbitalPeriod: 0.62,
+        distanceFromSun: 108.2,
+        description: 'The hottest planet with a thick, toxic atmosphere and is often called Earth\'s sister planet.',
+        type: 'Terrestrial'
+      },
+      {
+        name: 'Earth',
+        orbitalPeriod: 1.0,
+        distanceFromSun: 149.6,
+        description: 'Our home planet, the only known celestial body with life and liquid water on its surface.',
+        type: 'Terrestrial'
+      },
+      {
+        name: 'Mars',
+        orbitalPeriod: 1.88,
+        distanceFromSun: 227.9,
+        description: 'The red planet, home to the largest volcano and canyon in the solar system.',
+        type: 'Terrestrial'
+      },
+      {
+        name: 'Jupiter',
+        orbitalPeriod: 11.86,
+        distanceFromSun: 778.5,
+        description: 'The largest planet, a gas giant with a great red spot storm that\'s larger than Earth.',
+        type: 'Gas Giant'
+      },
+      {
+        name: 'Saturn',
+        orbitalPeriod: 29.46,
+        distanceFromSun: 1434.0,
+        description: 'Famous for its spectacular ring system, Saturn is a gas giant with 83 known moons.',
+        type: 'Gas Giant'
+      },
+      {
+        name: 'Uranus',
+        orbitalPeriod: 84.01,
+        distanceFromSun: 2873.0,
+        description: 'An ice giant that rotates on its side with a unique tilted axial inclination.',
+        type: 'Ice Giant'
+      },
+      {
+        name: 'Neptune',
+        orbitalPeriod: 164.79,
+        distanceFromSun: 4495.1,
+        description: 'The windiest planet in the solar system, Neptune is an ice giant with supersonic winds.',
+        type: 'Ice Giant'
+      }
+    ];
+
+    function createPlanetCards() {
+      const planetsGrid = document.getElementById('planetsGrid');
+      planetsGrid.innerHTML = '';
+
+      planets.forEach((planet) => {
+        const card = document.createElement('div');
+        card.className = 'planet-card';
+        
+        const ageDisplay = planet.orbitalPeriod === 0 ? 'N/A' : '<span class="age-value" id="age-' + planet.name.toLowerCase().replace(/ /g, '-') + '">—</span>';
+        const revolutionsDisplay = planet.orbitalPeriod === 0 ? 'N/A' : '<span id="revolutions-' + planet.name.toLowerCase().replace(/ /g, '-') + '">—</span>';
+
+        let planetImageHTML = planet.name === 'Mercury' 
+          ? '<iframe src="https://www.youtube.com/embed/qj-cZxMfS80" style="width: 100%; height: 100%; border: none; border-radius: 12px;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+          : `<div style="display: flex; align-items: center; justify-content: center; height: 100%; width: 100%;">${planet.type}</div>`;
+
+        card.innerHTML = `
+          <h3>${planet.name}</h3>
+          <div class="planet-image" style="${planet.name === 'Mercury' ? 'padding: 0; background: none;' : ''}">${planetImageHTML}</div>
+          <div class="planet-stats">
+            <div class="stat-row">
+              <span class="stat-label">Age (Your Age):</span>
+              <span class="stat-value">${ageDisplay}</span>
+            </div>
+            <div class="stat-row">
+              <span class="stat-label">Revolutions:</span>
+              <span class="stat-value">${revolutionsDisplay}</span>
+            </div>
+            <div class="stat-row">
+              <span class="stat-label">Orbital Period:</span>
+              <span class="stat-value">${planet.orbitalPeriod === 0 ? 'Central Body' : planet.orbitalPeriod.toFixed(2)} Earth days</span>
+            </div>
+            <div class="stat-row">
+              <span class="stat-label">Distance from Sun:</span>
+              <span class="stat-value">${planet.distanceFromSun === 0 ? 'Center' : planet.distanceFromSun.toFixed(1)} million km</span>
+            </div>
+          </div>
+        `;
+        
+        planetsGrid.appendChild(card);
+      });
+    }
+
+    function calculatePlanetaryAges() {
+      const earthAge = parseFloat(document.getElementById('earthAgeInput').value);
+      
+      if (isNaN(earthAge) || earthAge < 0) {
+        alert('Please enter a valid age in Earth years');
+        return;
+      }
+
+      planets.forEach((planet) => {
+        if (planet.orbitalPeriod > 0) {
+          // Calculate age on planet (how many times the planet has orbited the sun)
+          const ageOnPlanet = earthAge / planet.orbitalPeriod;
+          
+          // Calculate revolutions (same as age)
+          const revolutions = earthAge / planet.orbitalPeriod;
+
+          const planetId = planet.name.toLowerCase().replace(/ /g, '-');
+          
+          const ageElement = document.getElementById('age-' + planetId);
+          const revolutionsElement = document.getElementById('revolutions-' + planetId);
+
+          if (ageElement) {
+            ageElement.textContent = ageOnPlanet.toFixed(2);
+          }
+
+          if (revolutionsElement) {
+            revolutionsElement.textContent = revolutions.toFixed(2);
+          }
+        }
+      });
+    }
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', createPlanetCards);
+
+    // Allow Enter key to calculate
+    document.getElementById('earthAgeInput').addEventListener('keypress', function(event) {
+      if (event.key === 'Enter') {
+        calculatePlanetaryAges();
+      }
+    });
+  </script>

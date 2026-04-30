@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>1-Minute Video Rotoscope - Multimedia Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0f0f1e 100%);
+      color: #ffffff;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Animated background shapes */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 20%;
+      left: 5%;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(106, 90, 205, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 8s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      bottom: 10%;
+      right: 5%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(123, 104, 238, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 10s ease-in-out infinite reverse;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(50px) rotate(8deg); }
+    }
+
+    h1, h2, h3 {
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: -0.5px;
+    }
+
+    /* NAVBAR */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 60px;
+      background: rgba(15, 15, 30, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(106, 90, 205, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #6A5ACD 0%, #7B68EE 100%);
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 500;
+      position: relative;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 15px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2.5px;
+      background: linear-gradient(90deg, #6A5ACD 0%, #7B68EE 100%);
+      left: 0;
+      bottom: -8px;
+      transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      border-radius: 2px;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* CONTENT */
+    .content {
+      padding: 80px 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+      animation: fadeIn 0.6s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes fadeIn {
+      from { 
+        opacity: 0; 
+        transform: translateY(15px); 
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0); 
+      }
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #6A5ACD;
+      text-decoration: none;
+      font-weight: 600;
+      margin-bottom: 40px;
+      transition: 0.3s;
+    }
+
+    .back-link:hover {
+      gap: 15px;
+    }
+
+    .content h1 {
+      font-size: 48px;
+      margin-bottom: 40px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      background: linear-gradient(135deg, #6A5ACD 0%, #7B68EE 100%);
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* SECTION */
+    .section {
+      margin-bottom: 80px;
+    }
+
+    .section h2 {
+      font-size: 32px;
+      margin-bottom: 40px;
+      color: #ffffff;
+      font-weight: 700;
+      padding-bottom: 20px;
+      border-bottom: 2px solid rgba(106, 90, 205, 0.15);
+      position: relative;
+    }
+
+    .section h2::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      height: 2px;
+      width: 60px;
+      background: linear-gradient(90deg, #6A5ACD 0%, #7B68EE 100%);
+    }
+
+    /* VIDEO CONTAINER */
+    .video-container {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+      border: 1px solid rgba(106, 90, 205, 0.2);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 50px rgba(106, 90, 205, 0.1), 0 0 1px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .video-container:hover {
+      box-shadow: 0 25px 70px rgba(106, 90, 205, 0.15), 0 0 1px rgba(0, 0, 0, 0.2);
+      transform: translateY(-4px);
+    }
+
+    .video-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .video-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(106, 90, 205, 0.1) 0%, rgba(123, 104, 238, 0.08) 100%);
+      color: #6A5ACD;
+      font-size: 18px;
+      font-weight: 600;
+      text-align: center;
+      padding: 40px;
+    }
+
+    /* TUTORIAL STEPS */
+    .tutorial-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .step {
+      background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+      border: 1px solid rgba(106, 90, 205, 0.15);
+      border-radius: 14px;
+      padding: 24px;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .step::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(180deg, #6A5ACD 0%, #7B68EE 100%);
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 0.3s ease;
+    }
+
+    .step:hover::before {
+      transform: scaleY(1);
+    }
+
+    .step:hover {
+      box-shadow: 0 12px 35px rgba(106, 90, 205, 0.2);
+      border-color: rgba(106, 90, 205, 0.3);
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, #6A5ACD 0%, #7B68EE 100%);
+      color: white;
+      border-radius: 50%;
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 12px;
+      box-shadow: 0 6px 16px rgba(106, 90, 205, 0.3);
+      flex-shrink: 0;
+    }
+
+    .step h3 {
+      font-size: 18px;
+      margin-bottom: 12px;
+      color: #ffffff;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .step p {
+      color: #b0b0b0;
+      line-height: 1.6;
+      font-size: 13px;
+      margin-bottom: 0;
+    }
+
+    .step-video-container {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: linear-gradient(135deg, rgba(106, 90, 205, 0.05) 0%, rgba(123, 104, 238, 0.05) 100%);
+      border: 1px solid rgba(106, 90, 205, 0.15);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 12px;
+      display: block;
+    }
+
+    .step-video-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .step-video-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(106, 90, 205, 0.1) 0%, rgba(123, 104, 238, 0.08) 100%);
+      color: #6A5ACD;
+      font-size: 12px;
+      font-weight: 600;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* WEEKLY PROGRESS */
+    .progress-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
+    }
+
+    .progress-container {
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+      border: 2px dashed rgba(106, 90, 205, 0.3);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .progress-container::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(106, 90, 205, 0.1) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .progress-container:hover {
+      border-color: rgba(106, 90, 205, 0.6);
+      box-shadow: 0 15px 40px rgba(106, 90, 205, 0.15);
+      transform: translateY(-8px);
+    }
+
+    .progress-container:hover::before {
+      opacity: 1;
+    }
+
+    .week-label {
+      font-weight: 600;
+      color: #6A5ACD;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .upload-icon {
+      font-size: 36px;
+      margin-bottom: 10px;
+      color: rgba(106, 90, 205, 0.5);
+      transition: 0.3s;
+    }
+
+    .progress-container:hover .upload-icon {
+      color: #6A5ACD;
+      transform: scale(1.2);
+    }
+
+    .upload-text {
+      font-size: 13px;
+      color: #888;
+      font-weight: 500;
+    }
+
+    .progress-video {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 8px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: rgba(15, 15, 30, 0.95);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(106, 90, 205, 0.15);
+      padding: 40px 60px;
+      text-align: center;
+      margin-top: 100px;
+      position: relative;
+      z-index: 2;
+    }
+
+    footer p {
+      color: #b0b0b0;
+      font-size: 14px;
+      margin: 0;
+      letter-spacing: 0.5px;
+    }
+
+    footer p span {
+      background: linear-gradient(135deg, #6A5ACD 0%, #7B68EE 100%);
+      background-clip: text;
+      color: transparent;
+      font-weight: 600;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="index.html" class="logo">Multimedia Portfolio</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="about.html">About</a>
+    </div>
+  </nav>
+
+  <!-- PROJECT CONTENT -->
+  <div class="content">
+    <a href="portfolio.html" class="back-link">← Back to Portfolio</a>
+    <h1>1-Minute Video Rotoscope</h1>
+
+    <!-- SECTION 1: FINAL VIDEO -->
+    <div class="section">
+      <h2>1-Minute Rotoscope Video</h2>
+      <div class="video-container">
+        <div class="video-placeholder">
+          Final Video
+        </div>
+      </div>
+      <p style="margin-top: 20px; color: #b0b0b0; font-size: 14px; font-style: italic;">Disclaimer: This video was created for academic purposes only.</p>
+    </div>
+
+    <!-- SECTION 2: STEP-BY-STEP TUTORIAL -->
+    <div class="section">
+      <h2>Step-by-Step Tutorial</h2>
+      <div class="tutorial-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Finding a Video Reference for Rotoscoping</h3>
+          <p>Select a video reference that will serve as the foundation for your rotoscoping project. Choose footage with clear movements and distinct subjects. Ensure the video quality is high enough to trace accurately frame by frame.</p>
+          <div class="step-video-container">
+            <iframe src="https://www.youtube.com/embed/i9PFkQp3WSo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Importing Video into Animation Software</h3>
+          <p>Import your selected video into your animation or rotoscoping software (After Effects, Blender, etc.). Set up your timeline, import the video clip as a background layer, and ensure the frame rate matches your intended output.</p>
+          <div class="step-video-container">
+            <div class="step-video-placeholder">Paste YouTube tutorial video embed here</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Setting Up Tracing Tools and Layers</h3>
+          <p>Create new layers for your rotoscope artwork and set up your brushes/pen tools. Adjust brush sizes, opacity, and colors to match your design. Lock the video layer to prevent accidental edits.</p>
+          <div class="step-video-container">
+            <div class="step-video-placeholder">Paste YouTube tutorial video embed here</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>Rotoscoping Frame by Frame</h3>
+          <p>Begin tracing over the video frame by frame. Pay attention to details, edges, and movement. Work systematically through each frame, maintaining consistency in line quality and style. Use keyboard shortcuts to speed up your workflow.</p>
+          <div class="step-video-container">
+            <div class="step-video-placeholder">Paste YouTube tutorial video embed here</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">5</div>
+          <h3>Refining and Adding Details</h3>
+          <p>After completing the initial rotoscope, go back and refine your work. Add shadows, highlights, and additional details. Check for consistency across frames and smooth out any jittery lines or transitions.</p>
+          <div class="step-video-container">
+            <div class="step-video-placeholder">Paste YouTube tutorial video embed here</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">6</div>
+          <h3>Exporting and Post-Production</h3>
+          <p>Export your finished rotoscope animation in the desired format. Apply any additional effects, color corrections, or compositing. Save multiple versions and prepare your final video for playback and sharing.</p>
+          <div class="step-video-container">
+            <div class="step-video-placeholder">Paste YouTube tutorial video embed here</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 3: WEEKLY PROGRESS -->
+    <div class="section">
+      <h2>Weekly Progress</h2>
+      <div class="progress-grid">
+        <div class="progress-container">
+          <div class="week-label">Week 1</div>
+          <iframe src="https://www.youtube.com/embed/yBP2FVO9NuE" class="progress-video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="progress-container">
+          <div class="week-label">Week 2</div>
+          <iframe src="https://www.youtube.com/embed/_38VTedMCgo" class="progress-video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="progress-container">
+          <div class="week-label">Week 3</div>
+          <div class="upload-icon">📹</div>
+          <div class="upload-text">Upload progress video</div>
+        </div>
+        <div class="progress-container">
+          <div class="week-label">Week 4</div>
+          <div class="upload-icon">📹</div>
+          <div class="upload-text">Upload progress video</div>
+        </div>
+        <div class="progress-container">
+          <div class="week-label">Week 5</div>
+          <div class="upload-icon">📹</div>
+          <div class="upload-text">Upload progress video</div>
+        </div>
+        <div class="progress-container">
+          <div class="week-label">Week 6</div>
+          <div class="upload-icon">📹</div>
+          <div class="upload-text">Upload progress video</div>
+        </div>
+        <div class="progress-container">
+          <div class="week-label">Week 7</div>
+          <div class="upload-icon">📹</div>
+          <div class="upload-text">Upload progress video</div>
+        </div>
+        <div class="progress-container">
+          <div class="week-label">Week 8</div>
+          <div class="upload-icon">📹</div>
+          <div class="upload-text">Upload progress video</div>
+        </div>
+        <div class="progress-container">
+          <div class="week-label">Week 9</div>
+          <div class="upload-icon">📹</div>
+          <div class="upload-text">Upload progress video</div>
+        </div>
+        <div class="progress-container">
+          <div class="week-label">Week 10</div>
+          <div class="upload-icon">📹</div>
+          <div class="upload-text">Upload progress video</div>
+        </div>
+        <div class="progress-container">
+          <div class="week-label">Week 11</div>
+          <div class="upload-icon">📹</div>
+          <div class="upload-text">Upload progress video</div>
+        </div>
+        <div class="progress-container">
+          <div class="week-label">Week 12</div>
+          <div class="upload-icon">📹</div>
+          <div class="upload-text">Upload progress video</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p><span>© 2026 Jaqueline O. Denum</span> BSIT-NS-T-2A. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

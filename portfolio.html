@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Portfolio - Multimedia Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0f0f1e 100%);
+      color: #ffffff;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Animated background shapes */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 20%;
+      left: 10%;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(106, 90, 205, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 8s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      bottom: 10%;
+      right: 5%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(123, 104, 238, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 10s ease-in-out infinite reverse;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(50px) rotate(8deg); }
+    }
+
+    h1, h2, h3 {
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: -0.5px;
+    }
+
+    /* NAVBAR */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 60px;
+      background: rgba(15, 15, 30, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(106, 90, 205, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #6A5ACD 0%, #7B68EE 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.5px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 500;
+      position: relative;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 15px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2.5px;
+      background: linear-gradient(90deg, #6A5ACD 0%, #7B68EE 100%);
+      left: 0;
+      bottom: -8px;
+      transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      border-radius: 2px;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* CONTENT */
+    .content {
+      padding: 100px 60px;
+      min-height: calc(100vh - 70px);
+      animation: fadeIn 0.6s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes fadeIn {
+      from { 
+        opacity: 0; 
+        transform: translateY(15px); 
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0); 
+      }
+    }
+
+    /* PORTFOLIO */
+    .content h1 {
+      font-size: 48px;
+      margin-bottom: 15px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      background: linear-gradient(135deg, #6A5ACD 0%, #7B68EE 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: slideInDown 0.8s ease;
+      text-align: center;
+    }
+
+    .portfolio-subtitle {
+      font-size: 16px;
+      color: #b0b0b0;
+      margin: 0 auto 50px auto;
+      max-width: 500px;
+      line-height: 1.8;
+      animation: slideInUp 0.8s ease 0.2s both;
+      text-align: center;
+    }
+
+    @keyframes slideInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      margin-top: 20px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .card {
+      background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+      border: 1px solid rgba(106, 90, 205, 0.2);
+      padding: 0;
+      border-radius: 20px;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      animation: scaleIn 0.6s ease both;
+      backdrop-filter: blur(10px);
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .card-thumbnail {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, #6A5ACD 0%, #7B68EE 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-thumbnail::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(247, 154, 175, 0.3) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .card:hover .card-thumbnail::before {
+      opacity: 1;
+    }
+
+    .card-content {
+      padding: 35px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #6A5ACD 0%, #7B68EE 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.3px;
+    }
+
+    .card p {
+      color: #b0b0b0;
+      font-size: 15px;
+      line-height: 1.8;
+      font-weight: 400;
+    }
+
+    .card:nth-child(1) {
+      animation-delay: 0.3s;
+    }
+
+    .card:nth-child(2) {
+      animation-delay: 0.5s;
+    }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9) translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle, rgba(247, 154, 175, 0.2) 0%, transparent 70%);
+      border-radius: 50%;
+      opacity: 0;
+      transition: all 0.4s ease;
+    }
+
+    .card:hover::after {
+      opacity: 1;
+      width: 300px;
+      height: 300px;
+      right: -100px;
+      top: -100px;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #6A5ACD 0%, #7B68EE 100%);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card:hover {
+      transform: translateY(-12px);
+      border-color: rgba(106, 90, 205, 0.4);
+      box-shadow: 0 20px 40px rgba(106, 90, 205, 0.2);
+      background: linear-gradient(135deg, #252540 0%, #363652 100%);
+    }
+
+    .card h3 {
+      background: linear-gradient(135deg, #f79aaf 0%, #f5788d 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 10px;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .card p {
+      color: #666;
+      line-height: 1.8;
+      font-size: 15px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* FOOTER */
+    footer {
+      background: rgba(15, 15, 30, 0.95);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(106, 90, 205, 0.15);
+      padding: 40px 60px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    footer p {
+      color: #b0b0b0;
+      font-size: 14px;
+      margin: 0;
+      letter-spacing: 0.5px;
+    }
+
+    footer p span {
+      background: linear-gradient(135deg, #6A5ACD 0%, #7B68EE 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 600;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="index.html" class="logo">Multimedia Portfolio</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="about.html">About</a>
+    </div>
+  </nav>
+
+  <!-- PORTFOLIO CONTENT -->
+  <div class="content">
+    <h1>My Projects</h1>
+    <p class="portfolio-subtitle">Explore my collection of creative works showcasing expertise in 3D rendering and rotoscoping techniques.</p>
+
+    <div class="portfolio-grid">
+      <a href="rotoscope-project.html" class="card">
+        <div class="card-thumbnail">
+          <span>Rotoscope Thumbnail</span>
+        </div>
+        <div class="card-content">
+          <h3>1-Minute Video Rotoscope</h3>
+          <p>A rotoscoping project demonstrating frame-by-frame animation and digital artistic techniques applied to video content.</p>
+        </div>
+      </a>
+
+      <a href="solar-system-project.html" class="card">
+        <div class="card-thumbnail">
+          <span>3D Solar System Thumbnail</span>
+        </div>
+        <div class="card-content">
+          <h3>3RD Solar System</h3>
+          <p>A 3D rendering project showcasing an immersive solar system visualization with realistic planetary models and orbital mechanics.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p><span>© 2026 Jaqueline O. Denum</span> BSIT-NS-T-2A. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

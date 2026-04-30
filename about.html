@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About - Multimedia Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0f0f1e 100%);
+      color: #ffffff;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Animated background shapes */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 20%;
+      left: 5%;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(106, 90, 205, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 8s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      bottom: 10%;
+      right: 5%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(123, 104, 238, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 10s ease-in-out infinite reverse;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(50px) rotate(8deg); }
+    }
+
+    /* Animated background shapes */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 20%;
+      right: 5%;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(106, 90, 205, 0.12) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 8s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      bottom: 10%;
+      left: 5%;
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(123, 104, 238, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 10s ease-in-out infinite reverse;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(50px) scale(1.05); }
+    }
+
+    h1, h2, h3 {
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: -0.5px;
+    }
+
+    /* NAVBAR */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 60px;
+      background: rgba(15, 15, 30, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(106, 90, 205, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #6A5ACD 0%, #7B68EE 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.5px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 500;
+      position: relative;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 15px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2.5px;
+      background: linear-gradient(90deg, #6A5ACD 0%, #7B68EE 100%);
+      left: 0;
+      bottom: -8px;
+      transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      border-radius: 2px;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* CONTENT */
+    .content {
+      padding: 100px 60px;
+      min-height: calc(100vh - 70px);
+      animation: fadeIn 0.6s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes fadeIn {
+      from { 
+        opacity: 0; 
+        transform: translateY(15px); 
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0); 
+      }
+    }
+
+    /* ABOUT */
+    .content h1 {
+      font-size: 48px;
+      margin-bottom: 50px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      background: linear-gradient(135deg, #6A5ACD 0%, #7B68EE 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: slideInDown 0.8s ease;
+    }
+
+    @keyframes slideInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .about-content {
+      display: flex;
+      gap: 60px;
+      align-items: flex-start;
+      animation: slideInUp 0.8s ease 0.2s both;
+    }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .profile-img {
+      width: 240px;
+      height: 240px;
+      border-radius: 20px;
+      object-fit: cover;
+      flex-shrink: 0;
+      box-shadow: 0 20px 50px rgba(106, 90, 205, 0.25);
+      border: 3px solid rgba(106, 90, 205, 0.15);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-img::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(106, 90, 205, 0.2) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+
+    .profile-img:hover::before {
+      opacity: 1;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.05) rotate(2deg);
+      box-shadow: 0 30px 60px rgba(106, 90, 205, 0.35);
+    }
+
+    .about-text {
+      flex: 1;
+    }
+
+    .about-text h2 {
+      font-size: 32px;
+      background: linear-gradient(135deg, #6A5ACD 0%, #7B68EE 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      animation: fadeIn 0.8s ease 0.4s both;
+    }
+
+    .degree {
+      font-weight: 600;
+      color: #6A5ACD;
+      margin-bottom: 25px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      animation: fadeIn 0.8s ease 0.5s both;
+    }
+
+    .about-text p {
+      margin-bottom: 25px;
+      line-height: 1.8;
+      color: #b0b0b0;
+      font-size: 15px;
+      max-width: 600px;
+      animation: fadeIn 0.8s ease 0.6s both;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .skills-list {
+      list-style: none;
+      padding: 0;
+      animation: fadeIn 0.8s ease 0.7s both;
+    }
+
+    .skills-list li {
+      padding: 12px 0;
+      padding-left: 30px;
+      position: relative;
+      line-height: 1.7;
+      color: #b0b0b0;
+      font-size: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .skills-list li::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 30px;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(106, 90, 205, 0.3) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .skills-list li:hover::after {
+      opacity: 1;
+    }
+
+    .skills-list li:before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: #6A5ACD;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .skills-list li:hover {
+      padding-left: 35px;
+      color: #6A5ACD;
+    }
+
+    /* FOOTER */
+    footer {
+      background: rgba(15, 15, 30, 0.95);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(106, 90, 205, 0.15);
+      padding: 40px 60px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    footer p {
+      color: #b0b0b0;
+      font-size: 14px;
+      margin: 0;
+      letter-spacing: 0.5px;
+    }
+
+    footer p span {
+      background: linear-gradient(135deg, #6A5ACD 0%, #7B68EE 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 600;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="index.html" class="logo">Multimedia Portfolio</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="about.html">About</a>
+    </div>
+  </nav>
+
+  <!-- ABOUT CONTENT -->
+  <div class="content">
+    <h1>About Me</h1>
+    <div class="about-content">
+      <img src="profile.jpg" alt="Profile" class="profile-img">
+      <div class="about-text">
+        <h2>JAQUELINE O. DENUM</h2>
+        <p class="degree">BSIT - NS - 2A</p>
+        <p>
+          Step into my creative digital portfolio where I showcase my expertise and passion for 3D rendering and rotoscoping. Browse through diverse projects that highlight my proficiency with various multimedia software and innovative techniques for developing captivating 3D models and animations.
+        </p>
+        <ul class="skills-list">
+          <li>Master frame-by-frame rotoscoping methodologies using Adobe After Effects</li>
+          <li>Explore Python scripting capabilities in Blender to streamline 3D modeling workflows</li>
+          <li>Track weekly development updates showcasing creative progress and workflow optimization</li>
+          <li>Experience comprehensive displays of completed projects and refined artwork</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p><span>© 2026 Jaqueline O. Denum</span> BSIT-NS-T-2A. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

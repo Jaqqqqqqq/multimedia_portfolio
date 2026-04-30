@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Multimedia Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0f0f1e 100%);
+      color: #ffffff;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: -0.5px;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(50px) rotate(8deg); }
+    }
+
+    /* NAVBAR */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 60px;
+      background: rgba(15, 15, 30, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(106, 90, 205, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #6A5ACD 0%, #7B68EE 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.5px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 500;
+      position: relative;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 15px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2.5px;
+      background: linear-gradient(90deg, #6A5ACD 0%, #7B68EE 100%);
+      left: 0;
+      bottom: -8px;
+      transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      border-radius: 2px;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* SECTIONS */
+    section {
+      display: block;
+      padding: 100px 60px;
+      min-height: 100vh;
+      animation: fadeIn 0.6s ease;
+    }
+
+    @keyframes fadeIn {
+      from { 
+        opacity: 0; 
+        transform: translateY(15px); 
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0); 
+      }
+    }
+
+    /* HOME */
+    .home {
+      display: flex !important;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    .home h1 {
+      font-size: 56px;
+      margin-bottom: 30px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -1px;
+      color: #ffffff;
+      animation: slideInUp 0.8s ease 0.2s both;
+    }
+
+    .home span {
+      background: linear-gradient(135deg, #6A5ACD 0%, #7B68EE 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+    }
+
+    .home span::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #f79aaf 0%, #f5788d 100%);
+      opacity: 0.3;
+    }
+
+    .home p {
+      max-width: 600px;
+      line-height: 1.8;
+      font-size: 16px;
+      color: #e0e0e0;
+      margin: 0 auto 30px;
+      animation: slideInUp 0.8s ease 0.4s both;
+    }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* BUTTON */
+    .btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 14px 32px;
+      background: linear-gradient(135deg, #6A5ACD 0%, #7B68EE 100%);
+      color: white;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      font-size: 15px;
+      border: 2px solid transparent;
+      box-shadow: 0 10px 25px rgba(106, 90, 205, 0.4);
+      position: relative;
+      overflow: hidden;
+      animation: slideInUp 0.8s ease 0.5s both;
+    }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.2);
+      transition: left 0.3s ease;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(106, 90, 205, 0.5);
+    }
+
+    /* PARALLAX ELEMENTS */
+    .parallax-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0f0f1e 100%);
+      overflow: hidden;
+    }
+
+    /* Parallax animated shapes */
+    .parallax-bg::before {
+      content: "";
+      position: absolute;
+      top: 5%;
+      left: 5%;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(247, 154, 175, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .parallax-bg::after {
+      content: "";
+      position: absolute;
+      bottom: 5%;
+      right: 5%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(245, 120, 141, 0.12) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 10s ease-in-out infinite reverse;
+    }
+
+    /* Parallax shape elements */
+    .parallax-shape {
+      position: fixed;
+      pointer-events: none;
+      z-index: 0;
+      border-radius: 50%;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .parallax-left {
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(106, 90, 205, 0.15) 0%, transparent 70%);
+      top: 5%;
+      left: 5%;
+    }
+
+    .parallax-right {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(123, 104, 238, 0.15) 0%, transparent 70%);
+      bottom: 5%;
+      right: 5%;
+      animation: float 10s ease-in-out infinite reverse;
+    }
+
+    .home-content {
+      position: relative;
+      z-index: 3;
+    }
+
+    /* FEATURED PROJECTS */
+    .featured-section {
+      padding: 80px 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+      animation: fadeIn 0.8s ease 0.2s both;
+      position: relative;
+      z-index: 2;
+    }
+
+    .featured-section h2 {
+      font-size: 42px;
+      margin-bottom: 20px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.5px;
+    }
+
+    .featured-section h2 span {
+      background: linear-gradient(135deg, #6A5ACD 0%, #7B68EE 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .featured-subtitle {
+      font-size: 16px;
+      color: #b0b0b0;
+      margin-bottom: 60px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.8;
+      animation: slideInUp 0.8s ease 0.3s both;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .featured-card {
+      background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+      border: 1px solid rgba(106, 90, 205, 0.2);
+      border-radius: 20px;
+      overflow: hidden;
+      text-decoration: none;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      cursor: pointer;
+      animation: scaleIn 0.6s ease both;
+    }
+
+    .featured-card:nth-child(1) {
+      animation-delay: 0.4s;
+    }
+
+    .featured-card:nth-child(2) {
+      animation-delay: 0.5s;
+    }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9) translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    .featured-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 30px 60px rgba(106, 90, 205, 0.2);
+      border-color: rgba(106, 90, 205, 0.4);
+    }
+
+    .featured-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #6A5ACD 0%, #7B68EE 100%);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .featured-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .featured-thumbnail {
+      width: 100%;
+      height: 180px;
+      background: linear-gradient(135deg, #6A5ACD 0%, #7B68EE 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .featured-thumbnail::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .featured-card:hover .featured-thumbnail::after {
+      opacity: 1;
+    }
+
+    .featured-content {
+      padding: 30px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .featured-content h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .featured-content p {
+      color: #b0b0b0;
+      font-size: 14px;
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .featured-arrow {
+      margin-top: 15px;
+      color: #6A5ACD;
+      font-weight: 600;
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    .featured-card:hover .featured-arrow {
+      transform: translateX(5px);
+    }
+
+    /* FOOTER */
+    footer {
+      background: rgba(15, 15, 30, 0.95);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(106, 90, 205, 0.15);
+      padding: 40px 60px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    footer p {
+      color: #b0b0b0;
+      font-size: 14px;
+      margin: 0;
+      letter-spacing: 0.5px;
+    }
+
+    footer p span {
+      background: linear-gradient(135deg, #6A5ACD 0%, #7B68EE 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 600;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="index.html" class="logo">Multimedia Portfolio</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="about.html">About</a>
+    </div>
+  </nav>
+
+  <!-- HOME -->
+  <section id="home" class="home active">
+    <div class="parallax-bg" id="parallax-bg"></div>
+    <div class="parallax-shape parallax-left" id="shape-1"></div>
+    <div class="parallax-shape parallax-right" id="shape-2"></div>
+    <div class="home-content">
+      <h1>Hello, welcome to my <span>Multimedia Portfolio</span></h1>
+      <p>
+        This website showcases my creative projects, designs, and multimedia works.
+        Explore my portfolio to see what I've been working on!
+      </p>
+      <a href="portfolio.html" class="btn">View Projects</a>
+    </div>
+  </section>
+
+  <!-- FEATURED PROJECTS -->
+  <section class="featured-section">
+    <h2>Featured <span>Projects</span></h2>
+    <p class="featured-subtitle">Check out my latest creative works in rotoscoping and 3D rendering</p>
+    <div class="featured-grid">
+      <a href="rotoscope-project.html" class="featured-card">
+        <div class="featured-thumbnail">Rotoscope Thumbnail</div>
+        <div class="featured-content">
+          <h3>1-Minute Video Rotoscope</h3>
+          <p>A rotoscoping project demonstrating frame-by-frame animation and digital artistic techniques applied to video content.</p>
+          <span class="featured-arrow">Learn More →</span>
+        </div>
+      </a>
+      <a href="solar-system-project.html" class="featured-card">
+        <div class="featured-thumbnail">3D Solar System Thumbnail</div>
+        <div class="featured-content">
+          <h3>3RD Solar System</h3>
+          <p>A 3D rendering project showcasing an immersive solar system visualization with realistic planetary models and orbital mechanics.</p>
+          <span class="featured-arrow">Learn More →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- PARALLAX SCROLL EFFECT -->
+  <script>
+    // Parallax scrolling effect for shape elements
+    const shape1 = document.getElementById('shape-1');
+    const shape2 = document.getElementById('shape-2');
+    
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY;
+      const parallaxFactor = 0.5; // Move shapes at 50% of scroll speed
+      
+      // Move shapes based on scroll position
+      shape1.style.transform = `translateY(${scrolled * parallaxFactor}px)`;
+      shape2.style.transform = `translateY(${scrolled * parallaxFactor}px)`;
+    });
+  </script>
+
+  <!-- FOOTER -->
+  <footer>
+    <p><span>© 2026 Jaqueline O. Denum</span> BSIT-NS-T-2A. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
