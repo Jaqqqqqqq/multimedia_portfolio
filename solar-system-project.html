@@ -624,9 +624,16 @@
         const ageDisplay = planet.orbitalPeriod === 0 ? 'N/A' : '<span class="age-value" id="age-' + planet.name.toLowerCase().replace(/ /g, '-') + '">—</span>';
         const revolutionsDisplay = planet.orbitalPeriod === 0 ? 'N/A' : '<span id="revolutions-' + planet.name.toLowerCase().replace(/ /g, '-') + '">—</span>';
 
-        let planetImageHTML = planet.name === 'Mercury' 
-          ? '<video style="width: 100%; height: 100%; border: none; border-radius: 12px;" controls autoplay loop muted><source src="mercury.mp4" type="video/mp4">Your browser does not support the video tag.</video>'
-          : `<div style="display: flex; align-items: center; justify-content: center; height: 100%; width: 100%;">${planet.type}</div>`;
+        let planetImageHTML = '';
+        if (planet.name === 'Mercury') {
+          planetImageHTML = '<video style="width: 100%; height: 100%; border: none; border-radius: 12px;" autoplay loop muted><source src="rendered_videos/mercury.mp4" type="video/mp4">Your browser does not support the video tag.</video>';
+        } else if (planet.name === 'Jupiter') {
+          planetImageHTML = '<video style="width: 100%; height: 100%; border: none; border-radius: 12px;" autoplay loop muted><source src="rendered_videos/jupiter.mp4" type="video/mp4">Your browser does not support the video tag.</video>';
+        } else if (planet.name === 'Saturn') {
+          planetImageHTML = '<video style="width: 100%; height: 100%; border: none; border-radius: 12px;" autoplay loop muted><source src="rendered_videos/saturn.mp4" type="video/mp4">Your browser does not support the video tag.</video>';
+        } else {
+          planetImageHTML = `<div style="display: flex; align-items: center; justify-content: center; height: 100%; width: 100%;">${planet.type}</div>`;
+        }
 
         card.innerHTML = `
           <h3>${planet.name}</h3>
