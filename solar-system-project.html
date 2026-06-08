@@ -480,6 +480,38 @@
       margin-top: 15px;
     }
 
+    /* HERO HEADER */
+    .hero-header {
+      width: 100%;
+      height: 500px;
+      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('rendered_videos/solar_system_bg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+      margin-top: -80px;
+      padding-top: 80px;
+    }
+
+    .hero-content {
+      text-align: center;
+      animation: fadeIn 0.8s ease;
+    }
+
+    .hero-content h1 {
+      font-size: 72px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -2px;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
   </style>
 </head>
 
@@ -495,10 +527,16 @@
     </div>
   </nav>
 
+  <!-- HERO HEADER -->
+  <div class="hero-header">
+    <div class="hero-content">
+      <h1>3RD Solar System</h1>
+    </div>
+  </div>
+
   <!-- PROJECT CONTENT -->
   <div class="content">
     <a href="portfolio.html" class="back-link">← Back to Portfolio</a>
-    <h1>3RD Solar System</h1>
 
     <!-- SECTION 1: PROJECT SHOWCASE -->
     <div class="section">
