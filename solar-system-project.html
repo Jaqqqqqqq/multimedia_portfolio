@@ -482,20 +482,26 @@
 
     /* HERO HEADER */
     .hero-header {
-      width: 100%;
-      height: 500px;
-      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('solar_system_bg.jpg');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      z-index: 2;
-      margin-top: -80px;
-      padding-top: 80px;
-    }
+  width: 100%;
+  height: 500px;
+  background: linear-gradient(rgba(0, 0, 0, 0.4),
+  rgba(0, 0, 0, 0.4)),
+  url('solar_systemHD.png');
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  z-index: 2;
+
+  margin-top: -80px;
+  padding-top: 80px;
+}
 
     .hero-content {
       text-align: center;
@@ -512,6 +518,195 @@
       font-family: 'Poppins', sans-serif;
     }
 
+    /* =========================
+   SPACE SHUTTLE
+========================= */
+
+.space-shuttle{
+  position:absolute;
+
+  width:220px;
+
+  left:5%;
+  bottom:60px;
+
+  z-index:5;
+
+  filter:
+  drop-shadow(0 0 15px rgba(255,255,255,.4));
+
+  animation:
+  shuttleFloat 5s ease-in-out infinite;
+}
+
+/* =========================
+   METEOR
+========================= */
+
+.meteor{
+  position:absolute;
+
+  width:180px;
+
+  top:80px;
+  right:100px;
+
+  z-index:5;
+
+  filter:
+  drop-shadow(0 0 15px rgba(255,150,0,.7));
+
+  animation:
+  meteorFly 7s linear infinite;
+}
+
+/* =========================
+   HERO TITLE
+========================= */
+
+.hero-content{
+  position:relative;
+  z-index:10;
+}
+
+.hero-content h1{
+  font-size:90px;
+  font-weight:700;
+
+  text-shadow:
+  0 0 20px rgba(255,255,255,.3),
+  0 0 40px rgba(106,90,205,.4),
+  0 4px 20px rgba(0,0,0,.8);
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes shuttleFloat{
+  0%,100%{
+    transform:
+    translateY(0px)
+    rotate(-3deg);
+  }
+
+  50%{
+    transform:
+    translateY(-25px)
+    rotate(3deg);
+  }
+}
+
+@keyframes meteorFly{
+  from{
+    transform:
+    translate(0,0)
+    rotate(-25deg);
+  }
+
+  to{
+    transform:
+    translate(-1200px,700px)
+    rotate(-25deg);
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width:768px){
+
+  .hero-header{
+    height:500px;
+  }
+
+  .hero-content h1{
+    font-size:48px;
+  }
+
+  .space-shuttle{
+    width:120px;
+    left:10px;
+  }
+
+  .meteor{
+    width:100px;
+    right:20px;
+  }
+
+}
+
+.shooting-star{
+    position:absolute;
+
+    top:120px;
+    right:150px;
+
+    width:120px;
+    height:2px;
+
+    z-index:5;
+
+    background:
+    linear-gradient(
+        to left,
+        rgba(255,255,255,1),
+        rgba(255,255,255,.8),
+        rgba(255,255,255,0)
+    );
+
+    border-radius:999px;
+
+    box-shadow:
+        0 0 8px white,
+        0 0 16px white;
+
+    animation:
+        shootingStar 4s linear infinite;
+}
+
+.shooting-star::before{
+    content:"";
+
+    position:absolute;
+
+    right:-3px;
+    top:-2px;
+
+    width:6px;
+    height:6px;
+
+    background:white;
+
+    border-radius:50%;
+
+    box-shadow:
+        0 0 10px white,
+        0 0 20px white;
+}
+
+@keyframes shootingStar{
+    0%{
+        transform:
+        translate(0,0)
+        rotate(-25deg);
+
+        opacity:0;
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    100%{
+        transform:
+        translate(-1200px,700px)
+        rotate(-25deg);
+
+        opacity:0;
+    }
+}
   </style>
 </head>
 
@@ -528,11 +723,17 @@
   </nav>
 
   <!-- HERO HEADER -->
-  <div class="hero-header">
+<div class="hero-header">
+
+    <img src="images/space_shuttle.png" alt="Space Shuttle" class="space-shuttle">
+
+    <div class="shooting-star"></div>
+
     <div class="hero-content">
-      <h1>3RD Solar System</h1>
+        <h1>3RD Solar System</h1>
     </div>
-  </div>
+
+</div>
 
   <!-- PROJECT CONTENT -->
   <div class="content">
