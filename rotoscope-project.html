@@ -190,6 +190,66 @@
       background: linear-gradient(90deg, #6A5ACD 0%, #7B68EE 100%);
     }
 
+    /* TOOLS USED BADGES */
+    .tools-used {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .tools-used-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-right: 4px;
+    }
+
+    .tool-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.2px;
+      background: rgba(106, 90, 205, 0.1);
+      border: 1px solid rgba(106, 90, 205, 0.3);
+      color: #c9c2ff;
+      transition: all 0.3s ease;
+      cursor: default;
+      user-select: none;
+    }
+
+    .tool-badge:hover {
+      background: rgba(106, 90, 205, 0.18);
+      border-color: rgba(123, 104, 238, 0.5);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(106, 90, 205, 0.2);
+    }
+
+    .tool-badge .tool-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .tool-badge.after-effects .tool-dot {
+      background: #9999FF;
+      box-shadow: 0 0 8px rgba(153, 153, 255, 0.7);
+    }
+
+    .tool-badge.capcut .tool-dot {
+      background: #00F0FF;
+      box-shadow: 0 0 8px rgba(0, 240, 255, 0.7);
+    }
+
     /* VIDEO CONTAINER */
     .video-container {
       width: 100%;
@@ -296,6 +356,48 @@
       line-height: 1.6;
       font-size: 13px;
       margin-bottom: 0;
+    }
+
+    .step p + p {
+      margin-top: 10px;
+    }
+
+    .step-tips {
+      list-style: none;
+      margin-top: 12px;
+      padding-left: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .step-tips li {
+      position: relative;
+      padding-left: 18px;
+      color: #b0b0b0;
+      font-size: 12.5px;
+      line-height: 1.6;
+    }
+
+    .step-tips li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: #7B68EE;
+      font-weight: 700;
+    }
+
+    .step-tips kbd {
+      display: inline-block;
+      padding: 2px 7px;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      color: #c9c2ff;
+      background: rgba(106, 90, 205, 0.15);
+      border: 1px solid rgba(106, 90, 205, 0.35);
+      border-radius: 5px;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.2);
     }
 
     .step-video-container {
@@ -528,6 +630,19 @@
     <!-- SECTION 1: FINAL VIDEO -->
     <div class="section" id="final-video">
       <h2>1-Minute Rotoscope Video</h2>
+
+      <div class="tools-used">
+        <span class="tools-used-label">Made with</span>
+        <span class="tool-badge after-effects">
+          <span class="tool-dot"></span>
+          Adobe After Effects
+        </span>
+        <span class="tool-badge capcut">
+          <span class="tool-dot"></span>
+          CapCut
+        </span>
+      </div>
+
       <div class="video-container">
         <iframe src="https://www.youtube.com/embed/4gV_gDtvPT0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
@@ -550,6 +665,11 @@
           <div class="step-number">2</div>
           <h3>Importing Video into Animation Software</h3>
           <p>Import your selected video into your animation or rotoscoping software (After Effects, Blender, etc.). Set up your timeline, import the video clip as a background layer, and ensure the frame rate matches your intended output.</p>
+          <ul class="step-tips">
+            <li>Duplicate a layer with <kbd>Ctrl</kbd> + <kbd>D</kbd></li>
+            <li>Delete a layer by selecting it and pressing <kbd>Backspace</kbd></li>
+            <li>To rename a layer, right-click the selected layer and choose <strong>Rename</strong></li>
+          </ul>
           <div class="step-video-container">
             <img src="rotoscope_tuts/step2.png" alt="Step 2: Importing Video" style="width: 100%; height: 100%; object-fit: contain;">
           </div>
@@ -557,7 +677,11 @@
         <div class="step" id="step-3">
           <div class="step-number">3</div>
           <h3>Setting Up Tracing Tools and Layers</h3>
-          <p>Create new layers for your rotoscope artwork and set up your brushes/pen tools. Adjust brush sizes, opacity, and colors to match your design. Lock the video layer to prevent accidental edits.</p>
+          <p>Create new layers for your rotoscope artwork and set up your brushes/pen tools. Adjust brush sizes, opacity, and colors to match your design.</p>
+          <ul class="step-tips">
+            <li>To choose a brush type, double-click the Object Matte tool, then long-press on your second click to open the brush options</li>
+            <li>To adjust brush size, hold <kbd>Ctrl</kbd>, then double-click and drag to expand or shrink it</li>
+          </ul>
           <div class="step-video-container">
             <img src="rotoscope_tuts/step3.png" alt="Step 3: Setting Up Tracing Tools" style="width: 100%; height: 100%; object-fit: contain;">
           </div>
@@ -565,7 +689,11 @@
         <div class="step" id="step-4">
           <div class="step-number">4</div>
           <h3>Rotoscoping Frame by Frame</h3>
-          <p>Begin tracing over the video frame by frame. Pay attention to details, edges, and movement. Work systematically through each frame, maintaining consistency in line quality and style. Use keyboard shortcuts to speed up your workflow.</p>
+          <p>Begin tracing over the video frame by frame. Pay attention to details, edges, and movement. Work systematically through each frame, maintaining consistency in line quality and style.</p>
+          <ul class="step-tips">
+            <li>Move to the next frame with <kbd>Ctrl</kbd> + <kbd>→</kbd>, or go back with <kbd>Ctrl</kbd> + <kbd>←</kbd></li>
+            <li>Once all frames are traced, click <strong>Freeze</strong> to prevent accidental edits or trace lines mixing between layers</li>
+          </ul>
           <div class="step-video-container">
             <img src="rotoscope_tuts/step4.jpg" alt="Step 4: Rotoscoping Frame by Frame" style="width: 100%; height: 100%; object-fit: contain;">
           </div>
@@ -574,6 +702,11 @@
           <div class="step-number">5</div>
           <h3>Refining and Adding Details</h3>
           <p>After completing the initial rotoscope, go back and refine your work. Add shadows, highlights, and additional details. Check for consistency across frames and smooth out any jittery lines or transitions.</p>
+          <ul class="step-tips">
+            <li>To color a layer, select it, then go to <strong>Effects &amp; Presets</strong> → search and apply <strong>Fill</strong></li>
+            <li>Click the rectangular color swatch to choose a color, or type in a specific color code</li>
+            <li>Once colored, click <strong>Lock</strong> on each layer to prevent repeated, unwanted propagation</li>
+          </ul>
           <div class="step-video-container">
             <img src="rotoscope_tuts/step5.png" alt="Step 5: Refining and Adding Details" style="width: 100%; height: 100%; object-fit: contain;">
           </div>
@@ -582,6 +715,12 @@
           <div class="step-number">6</div>
           <h3>Exporting and Post-Production</h3>
           <p>Export your finished rotoscope animation in the desired format. Apply any additional effects, color corrections, or compositing. Save multiple versions and prepare your final video for playback and sharing.</p>
+          <ul class="step-tips">
+            <li>Go to <strong>File → Export → Add to Render Queue</strong></li>
+            <li>Click the <strong>.mp4</strong> output text to change the file name</li>
+            <li>Open <strong>Output Module</strong> and set: Format — <strong>QuickTime</strong>, Channels — <strong>RGB + Alpha</strong>, Color — <strong>Straight (Unmatted)</strong></li>
+            <li>Under <strong>Format Options</strong>, set Video Codec to <strong>Apple ProRes 4444</strong></li>
+          </ul>
           <div class="step-video-container">
             <img src="rotoscope_tuts/step6.png" alt="Step 6: Exporting and Post-Production" style="width: 100%; height: 100%; object-fit: contain;">
           </div>

@@ -181,6 +181,71 @@
       border-bottom: 2px solid rgba(106, 90, 205, 0.15);
     }
 
+    /* TOOLS USED BADGES */
+    .tools-used {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .tools-used-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-right: 4px;
+    }
+
+    .tool-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.2px;
+      background: rgba(106, 90, 205, 0.1);
+      border: 1px solid rgba(106, 90, 205, 0.3);
+      color: #c9c2ff;
+      transition: all 0.3s ease;
+      cursor: default;
+      user-select: none;
+    }
+
+    .tool-badge:hover {
+      background: rgba(106, 90, 205, 0.18);
+      border-color: rgba(123, 104, 238, 0.5);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(106, 90, 205, 0.2);
+    }
+
+    .tool-badge .tool-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .tool-badge.blender .tool-dot {
+      background: #F5792A;
+      box-shadow: 0 0 8px rgba(245, 121, 42, 0.7);
+    }
+
+    .tool-badge.modeling .tool-dot {
+      background: #9999FF;
+      box-shadow: 0 0 8px rgba(153, 153, 255, 0.7);
+    }
+
+    .tool-badge.python .tool-dot {
+      background: #4B8BBE;
+      box-shadow: 0 0 8px rgba(75, 139, 190, 0.7);
+    }
+
     /* VIDEO CONTAINER */
     .video-container {
       width: 100%;
@@ -259,6 +324,26 @@
       color: #6A5ACD;
       font-weight: bold;
       font-size: 12px;
+    }
+
+    .project-info .version-note {
+      display: block;
+      margin-top: 4px;
+      font-size: 12.5px;
+      color: #8f88aa;
+      font-style: italic;
+    }
+
+    .project-info a {
+      color: #a99cff;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(169, 156, 255, 0.3);
+      transition: 0.3s;
+    }
+
+    .project-info a:hover {
+      color: #c9c2ff;
+      border-bottom-color: #c9c2ff;
     }
 
     /* FOOTER */
@@ -647,6 +732,23 @@
     <!-- SECTION 1: PROJECT SHOWCASE -->
     <div class="section" id="showcase">
       <h2>Project Showcase</h2>
+
+      <div class="tools-used">
+        <span class="tools-used-label">Made with</span>
+        <span class="tool-badge blender">
+          <span class="tool-dot"></span>
+          Blender
+        </span>
+        <span class="tool-badge modeling">
+          <span class="tool-dot"></span>
+          3D Modeling
+        </span>
+        <span class="tool-badge python">
+          <span class="tool-dot"></span>
+          Python Script
+        </span>
+      </div>
+
       <div class="video-container">
         <iframe src="https://www.youtube.com/embed/fNCahU_NT_I" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
@@ -656,26 +758,48 @@
     <div class="section" id="details">
       <h2>Project Details</h2>
       <div class="project-info">
-        <h3>Overview</h3>
-        <p>This 3D rendering project showcases an immersive solar system visualization with realistic planetary models and orbital mechanics. The project demonstrates advanced 3D modeling, animation, and rendering techniques using industry-standard software.</p>
-        
-        <h3 style="margin-top: 30px;">Key Features</h3>
+
+        <h3>Tools Used</h3>
         <ul>
-          <li>Realistic planetary models with accurate proportions</li>
-          <li>Dynamic orbital mechanics and celestial movements</li>
-          <li>Advanced lighting and shadow techniques</li>
-          <li>High-quality texturing and material properties</li>
-          <li>Smooth camera animations and transitions</li>
-          <li>Professional rendering and post-production effects</li>
+          <li>
+            Blender 3.3 — used for 3D modeling and animation
+            <span class="version-note">Note: Mars, Venus, and the Sun were modeled in Blender 2.9, while the remaining planets used Blender 5.1.</span>
+          </li>
+          <li>Python Scripting — used for procedural generation and automation</li>
         </ul>
 
-        <h3 style="margin-top: 30px;">Tools & Software Used</h3>
+        <h3 style="margin-top: 30px;">Render Information</h3>
         <ul>
-          <li>Blender - 3D modeling and rendering</li>
-          <li>Python scripting for workflow automation</li>
-          <li>Adobe After Effects for post-production</li>
-          <li>Substance Painter for texturing</li>
+          <li>Render Time: approximately 13 hours and 30 minutes</li>
+          <li>Resolution: 1920×1080 at 24fps</li>
+          <li>Total Frames: 3,500 frames (2 minutes and 25 seconds of animation)</li>
         </ul>
+
+        <h3 style="margin-top: 30px;">Key Features</h3>
+        <ul>
+          <li>A procedurally generated solar system built with near-relative planetary sizes</li>
+          <li>Orbital mechanics modeled to reflect near-relative orbital speeds</li>
+          <li>Dynamic camera movement that zooms in and out between planets</li>
+          <li>Detailed planetary textures paired with atmospheric effects</li>
+          <li>Animated informational displays accompanying each planet</li>
+        </ul>
+
+        <h3 style="margin-top: 30px;">Texture Materials</h3>
+        <ul>
+          <li>High-resolution planetary textures sourced from <a href="https://www.solarsystemscope.com/textures/" target="_blank" rel="noopener">Solar System Scope's texture library</a></li>
+          <li>Pluto's texture sourced from a <a href="https://share.google/Xe0efijYxBeJL5luQ" target="_blank" rel="noopener">separate texture source</a></li>
+        </ul>
+
+        <h3 style="margin-top: 30px;">Python Scripts for Sun and Each Planet</h3>
+        <ul>
+          <li>Full set of Python scripts available <a href="https://drive.google.com/drive/folders/1w5KWNIkpuI4T4VR9q7GorJMjDWugiEPE?usp=sharing" target="_blank" rel="noopener">here</a></li>
+        </ul>
+
+        <h3 style="margin-top: 30px;">Project Source Code</h3>
+        <ul>
+          <li>Complete solar system project code available <a href="https://drive.google.com/drive/folders/1b3K-mKT1bGEognBv8GoRk9E0xjLmIPTt?usp=sharing" target="_blank" rel="noopener">here</a></li>
+        </ul>
+
       </div>
     </div>
 
@@ -886,3 +1010,5 @@
       }
     });
   </script>
+</body>
+</html>
