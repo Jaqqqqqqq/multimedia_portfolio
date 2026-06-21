@@ -155,188 +155,211 @@
     }
 
     /* CONTENT */
-    .content {
-      padding: 100px 60px;
-      min-height: calc(100vh - 70px);
-      animation: fadeIn 0.6s ease;
-      position: relative;
-      z-index: 2;
-    }
+    /* CONTENT */
+.content {
+  padding: 80px 60px;
+  min-height: calc(100vh - 70px);
+  position: relative;
+  z-index: 2;
+}
 
-    @keyframes fadeIn {
-      from { 
-        opacity: 0; 
-        transform: translateY(15px); 
-      }
-      to { 
-        opacity: 1; 
-        transform: translateY(0); 
-      }
-    }
+/* ABOUT TITLE */
+.content h1 {
+  text-align: center;
+  font-size: 46px;
+  margin-bottom: 50px;
+  font-weight: 700;
 
-    /* ABOUT */
-    .content h1 {
-      font-size: 48px;
-      margin-bottom: 50px;
-      font-weight: 700;
-      letter-spacing: -1px;
-      background: linear-gradient(135deg, #6A5ACD 0%, #7B68EE 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: slideInDown 0.8s ease;
-    }
+  background: linear-gradient(135deg, #6A5ACD, #7B68EE);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
-    @keyframes slideInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
 
-    .about-content {
-      display: flex;
-      gap: 60px;
-      align-items: flex-start;
-      animation: slideInUp 0.8s ease 0.2s both;
-    }
+/* ABOUT CARD */
+.about-content {
 
-    @keyframes slideInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+  max-width: 1000px;
+  margin: auto;
 
-    .profile-img {
-      width: 240px;
-      height: 240px;
-      border-radius: 20px;
-      object-fit: cover;
-      flex-shrink: 0;
-      box-shadow: 0 20px 50px rgba(106, 90, 205, 0.25);
-      border: 3px solid rgba(106, 90, 205, 0.15);
-      transition: all 0.4s ease;
-      position: relative;
-      overflow: hidden;
-    }
+  display: flex;
+  align-items: center;
+  gap: 50px;
 
-    .profile-img::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(106, 90, 205, 0.2) 0%, transparent 100%);
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      pointer-events: none;
-    }
+  padding: 45px;
 
-    .profile-img:hover::before {
-      opacity: 1;
-    }
+  background: rgba(255,255,255,0.05);
 
-    .profile-img:hover {
-      transform: scale(1.05) rotate(2deg);
-      box-shadow: 0 30px 60px rgba(106, 90, 205, 0.35);
-    }
+  border: 1px solid rgba(123,104,238,0.2);
 
-    .about-text {
-      flex: 1;
-    }
+  border-radius: 25px;
 
-    .about-text h2 {
-      font-size: 32px;
-      background: linear-gradient(135deg, #6A5ACD 0%, #7B68EE 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 8px;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      animation: fadeIn 0.8s ease 0.4s both;
-    }
+  backdrop-filter: blur(15px);
 
-    .degree {
-      font-weight: 600;
-      color: #6A5ACD;
-      margin-bottom: 25px;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      animation: fadeIn 0.8s ease 0.5s both;
-    }
+  box-shadow:
+  0 20px 50px rgba(0,0,0,0.4);
 
-    .about-text p {
-      margin-bottom: 25px;
-      line-height: 1.8;
-      color: #b0b0b0;
-      font-size: 15px;
-      max-width: 600px;
-      animation: fadeIn 0.8s ease 0.6s both;
-    }
+}
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
 
-    .skills-list {
-      list-style: none;
-      padding: 0;
-      animation: fadeIn 0.8s ease 0.7s both;
-    }
+/* PROFILE IMAGE */
+.profile-img {
 
-    .skills-list li {
-      padding: 12px 0;
-      padding-left: 30px;
-      position: relative;
-      line-height: 1.7;
-      color: #b0b0b0;
-      font-size: 15px;
-      transition: all 0.3s ease;
-    }
+  width:260px;
+  height:260px;
 
-    .skills-list li::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 30px;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, rgba(106, 90, 205, 0.3) 0%, transparent 100%);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
+  border-radius:30px;
 
-    .skills-list li:hover::after {
-      opacity: 1;
-    }
+  object-fit:cover;
 
-    .skills-list li:before {
-      content: "→";
-      position: absolute;
-      left: 0;
-      color: #6A5ACD;
-      font-weight: bold;
-      font-size: 18px;
-    }
+  border:4px solid rgba(123,104,238,0.3);
 
-    .skills-list li:hover {
-      padding-left: 35px;
-      color: #6A5ACD;
-    }
+  box-shadow:
+  0 20px 40px rgba(106,90,205,0.3);
+
+  transition:.4s;
+
+}
+
+
+.profile-img:hover {
+
+  transform:translateY(-8px);
+
+}
+
+
+/* TEXT */
+.about-text h2 {
+
+  font-size:32px;
+
+  margin-bottom:8px;
+
+
+  background:linear-gradient(135deg,#ffffff,#a99cff);
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+}
+
+
+
+.degree {
+
+  color:#8f7cff;
+
+  font-weight:600;
+
+  letter-spacing:2px;
+
+  font-size:13px;
+
+  margin-bottom:25px;
+
+}
+
+
+
+.about-text p {
+
+
+  color:#c0c0c0;
+
+  line-height:1.8;
+
+  font-size:15px;
+
+  margin-bottom:25px;
+
+}
+
+
+
+/* SKILLS */
+
+.skills-list {
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:15px;
+
+list-style:none;
+
+}
+
+
+
+.skills-list li {
+
+
+background:rgba(255,255,255,0.05);
+
+border:1px solid rgba(123,104,238,.15);
+
+padding:15px;
+
+border-radius:15px;
+
+
+font-size:14px;
+
+color:#ccc;
+
+transition:.3s;
+
+}
+
+
+
+.skills-list li:hover {
+
+
+transform:translateY(-5px);
+
+border-color:#7B68EE;
+
+color:white;
+
+
+}
+
+
+.skills-list li::before {
+
+content:"✦";
+
+color:#7B68EE;
+
+margin-right:10px;
+
+}
+
+
+
+
+@media(max-width:850px){
+
+.about-content{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+
+.skills-list{
+
+grid-template-columns:1fr;
+
+}
+
+
+}
 
     /* FOOTER */
     footer {
@@ -364,6 +387,54 @@
       font-weight: 600;
     }
 
+    /* FOOTER NAVIGATION GRID */
+    .footer-nav-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      margin-bottom: 30px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid rgba(106, 90, 205, 0.15);
+    }
+
+    .footer-column h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #6A5ACD;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 15px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .footer-column a {
+      display: block;
+      color: #b0b0b0;
+      text-decoration: none;
+      font-size: 12px;
+      line-height: 1.8;
+      transition: all 0.3s ease;
+      padding: 4px 0;
+    }
+
+    .footer-column a:hover {
+      color: #7B68EE;
+      padding-left: 5px;
+    }
+
+    @media (max-width: 1024px) {
+      .footer-nav-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .footer-nav-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
   </style>
 </head>
 
@@ -382,26 +453,97 @@
   <!-- ABOUT CONTENT -->
   <div class="content">
     <h1>About Me</h1>
-    <div class="about-content">
-      <img src="profile.jpg" alt="Profile" class="profile-img">
-      <div class="about-text">
-        <h2>JAQUELINE O. DENUM</h2>
-        <p class="degree">BSIT - NS - 2A</p>
-        <p>
-          Step into my creative digital portfolio where I showcase my expertise and passion for 3D rendering and rotoscoping. Browse through diverse projects that highlight my proficiency with various multimedia software and innovative techniques for developing captivating 3D models and animations.
-        </p>
-        <ul class="skills-list">
-          <li>Master frame-by-frame rotoscoping methodologies using Adobe After Effects</li>
-          <li>Explore Python scripting capabilities in Blender to streamline 3D modeling workflows</li>
-          <li>Track weekly development updates showcasing creative progress and workflow optimization</li>
-          <li>Experience comprehensive displays of completed projects and refined artwork</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<div class="content">
+
+
+<div class="about-content">
+
+
+<img src="profile.jpg" 
+alt="Profile"
+class="profile-img">
+
+
+<div class="about-text">
+
+
+<h2>JAQUELINE O. DENUM</h2>
+
+<p class="degree">
+BSIT - NS - 2A
+</p>
+
+
+<p>
+I am a Multimedia and Information Technology student passionate about
+3D rendering, animation, and digital creativity. This portfolio showcases
+my projects in Blender, rotoscoping, and multimedia development where I
+combine technical skills with creative design.
+</p>
+
+
+
+<ul class="skills-list">
+
+
+<li>
+3D modeling and animation using Blender
+</li>
+
+
+<li>
+Python scripting for 3D workflow automation
+</li>
+
+
+<li>
+Frame-by-frame rotoscoping using Adobe After Effects
+</li>
+
+
+<li>
+Multimedia design and creative project development
+</li>
+
+
+</ul>
+
+
+</div>
+
+
+</div>
+
+
+</div>
 
   <!-- FOOTER -->
   <footer>
+    <div class="footer-nav-grid">
+      <div class="footer-column">
+        <h3>Home</h3>
+        <a href="index.html#home">Welcome</a>
+        <a href="index.html">Featured Projects</a>
+      </div>
+      <div class="footer-column">
+        <h3>Rotoscoping</h3>
+        <a href="rotoscope-project.html#final-video">Final Video</a>
+        <a href="rotoscope-project.html#tutorial">Tutorial</a>
+        <a href="rotoscope-project.html#weekly-progress">Weekly Progress</a>
+      </div>
+      <div class="footer-column">
+        <h3>Solar System</h3>
+        <a href="solar-system-project.html#showcase">Showcase</a>
+        <a href="solar-system-project.html#details">Details</a>
+        <a href="solar-system-project.html#celestial-bodies">Celestial Bodies</a>
+        <a href="solar-system-project.html#calculator">Calculator</a>
+      </div>
+      <div class="footer-column">
+        <h3>About</h3>
+        <a href="about.html">About Me</a>
+        <a href="about.html">Skills</a>
+      </div>
+    </div>
     <p><span>© 2026 Jaqueline O. Denum</span> BSIT-NS-T-2A. All rights reserved.</p>
   </footer>
 

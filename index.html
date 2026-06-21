@@ -382,28 +382,18 @@
     }
 
     .featured-thumbnail {
-      width: 100%;
-      height: 180px;
-      background: linear-gradient(135deg, #6A5ACD 0%, #7B68EE 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 14px;
-      font-weight: 600;
-      position: relative;
-      overflow: hidden;
-    }
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  position: relative;
+}
 
-    .featured-thumbnail::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
+.featured-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
     .featured-card:hover .featured-thumbnail::after {
       opacity: 1;
     }
@@ -468,6 +458,54 @@
       font-weight: 600;
     }
 
+    /* FOOTER NAVIGATION GRID */
+    .footer-nav-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      margin-bottom: 30px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid rgba(106, 90, 205, 0.15);
+    }
+
+    .footer-column h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #6A5ACD;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 15px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .footer-column a {
+      display: block;
+      color: #b0b0b0;
+      text-decoration: none;
+      font-size: 12px;
+      line-height: 1.8;
+      transition: all 0.3s ease;
+      padding: 4px 0;
+    }
+
+    .footer-column a:hover {
+      color: #7B68EE;
+      padding-left: 5px;
+    }
+
+    @media (max-width: 1024px) {
+      .footer-nav-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .footer-nav-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
   </style>
 </head>
 
@@ -494,33 +532,50 @@
         This website showcases my creative projects, designs, and multimedia works.
         Explore my portfolio to see what I've been working on!
       </p>
-      <a href="portfolio.html" class="btn">View Projects</a>
     </div>
   </section>
 
-  <!-- FEATURED PROJECTS -->
-  <section class="featured-section">
-    <h2>Featured <span>Projects</span></h2>
-    <p class="featured-subtitle">Check out my latest creative works in rotoscoping and 3D rendering</p>
-    <div class="featured-grid">
-      <a href="rotoscope-project.html" class="featured-card">
-        <div class="featured-thumbnail">Rotoscope Thumbnail</div>
-        <div class="featured-content">
-          <h3>1-Minute Video Rotoscope</h3>
-          <p>A rotoscoping project demonstrating frame-by-frame animation and digital artistic techniques applied to video content.</p>
-          <span class="featured-arrow">Learn More →</span>
-        </div>
-      </a>
-      <a href="solar-system-project.html" class="featured-card">
-        <div class="featured-thumbnail">3D Solar System Thumbnail</div>
-        <div class="featured-content">
-          <h3>3RD Solar System</h3>
-          <p>A 3D rendering project showcasing an immersive solar system visualization with realistic planetary models and orbital mechanics.</p>
-          <span class="featured-arrow">Learn More →</span>
-        </div>
-      </a>
-    </div>
-  </section>
+<!-- FEATURED PROJECTS -->
+<section class="featured-section">
+  <h2>Featured <span>Projects</span></h2>
+  <p class="featured-subtitle">
+    Check out my latest creative works in rotoscoping and 3D rendering
+  </p>
+
+  <div class="featured-grid">
+
+    <a href="rotoscope-project.html" class="featured-card">
+      <div class="featured-thumbnail">
+        <img src="rotoscope_tuts/step5.png" alt="Rotoscope Project Thumbnail">
+      </div>
+
+      <div class="featured-content">
+        <h3>1-Minute Video Rotoscope</h3>
+        <p>
+          A rotoscoping project demonstrating frame-by-frame animation and
+          digital artistic techniques applied to video content.
+        </p>
+        <span class="featured-arrow">Learn More →</span>
+      </div>
+    </a>
+
+    <a href="solar-system-project.html" class="featured-card">
+      <div class="featured-thumbnail">
+        <img src="thumbnails/solar_system.png" alt="3D Solar System Thumbnail">
+      </div>
+
+      <div class="featured-content">
+        <h3>3D Solar System</h3>
+        <p>
+          A 3D rendering project showcasing an immersive solar system
+          visualization with realistic planetary models and orbital mechanics.
+        </p>
+        <span class="featured-arrow">Learn More →</span>
+      </div>
+    </a>
+
+  </div>
+</section>
 
   <!-- PARALLAX SCROLL EFFECT -->
   <script>
@@ -540,6 +595,31 @@
 
   <!-- FOOTER -->
   <footer>
+    <div class="footer-nav-grid">
+      <div class="footer-column">
+        <h3>Home</h3>
+        <a href="index.html#home">Welcome</a>
+        <a href="index.html">Featured Projects</a>
+      </div>
+      <div class="footer-column">
+        <h3>Rotoscoping</h3>
+        <a href="rotoscope-project.html#final-video">Final Video</a>
+        <a href="rotoscope-project.html#tutorial">Tutorial</a>
+        <a href="rotoscope-project.html#weekly-progress">Weekly Progress</a>
+      </div>
+      <div class="footer-column">
+        <h3>Solar System</h3>
+        <a href="solar-system-project.html#showcase">Showcase</a>
+        <a href="solar-system-project.html#details">Details</a>
+        <a href="solar-system-project.html#celestial-bodies">Celestial Bodies</a>
+        <a href="solar-system-project.html#calculator">Calculator</a>
+      </div>
+      <div class="footer-column">
+        <h3>About</h3>
+        <a href="about.html">About Me</a>
+        <a href="about.html">Skills</a>
+      </div>
+    </div>
     <p><span>© 2026 Jaqueline O. Denum</span> BSIT-NS-T-2A. All rights reserved.</p>
   </footer>
 
