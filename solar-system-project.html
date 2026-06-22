@@ -842,7 +842,6 @@
         <a href="#showcase">Showcase</a>
         <a href="#details">Details</a>
         <a href="#celestial-bodies">Celestial Bodies</a>
-
         <a href="#calculator">Calculator</a>
       </div>
       <div class="footer-column">
@@ -920,6 +919,13 @@
         distanceFromSun: 4495.1,
         description: 'The windiest planet in the solar system, Neptune is an ice giant with supersonic winds.',
         type: 'Ice Giant'
+      },
+      {
+        name: 'Pluto',
+        orbitalPeriod: 248.09,
+        distanceFromSun: 5906.4,
+        description: 'A dwarf planet in the Kuiper Belt, Pluto has a heart-shaped nitrogen ice plain and five known moons.',
+        type: 'Dwarf Planet'
       }
     ];
 
@@ -967,6 +973,7 @@
         planetsGrid.appendChild(card);
       });
     }
+
     // FUNCTIONALITY OF CALCULATOR
     function calculatePlanetaryAges() {
       const earthAge = parseFloat(document.getElementById('earthAgeInput').value);
